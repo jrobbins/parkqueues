@@ -1,0 +1,77 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/core-icon-button/core-icon-button.html">
+<link rel="import" href="/components/paper-shadow/paper-shadow.html">
+
+<polymer-element name="hours-tab" attributes="park date">
+  <template>
+    <link rel="import" href="/components/paper-shadow/paper-shadow.css">
+    <style>
+      p { margin: 5px; }
+      th { text-align: right;  white-space: nowrap; }
+      .valid { color: #4a6; }
+      .blocked { color: #a46; }
+    </style>
+
+    <div class="card"><paper-shadow z="1">
+       <p>{{park.description}}</p>
+    </paper-shadow></div>
+
+    <div class="card"><paper-shadow z="1">
+      <h3>Schedule and conditions</h3>
+      <table cellspacing="6">
+        <tr><th>Date</th><td>{{date_string()}}</td></tr>
+        <tr>
+	  <th>Park Hours</th>
+	  <td>{{hhmmToTimeStr(park.openHhmm)}} to {{hhmmToTimeStr(park.closeHhmm)}}</td>
+	</tr>
+        <tr><th>Magic Morning</th><td>08:00 to 09:00</td></tr>
+        <tr><th>Crowd estimate</th><td>{{dailyCrowds(park, date)}}%</td></tr>
+        <tr><th>Weather</th><td>90.0F Fair</td></tr>
+      </table>
+    </paper-shadow></div>
+
+    <div class="card"><paper-shadow z="1">
+      <h3>Closures</h3>
+      <ul>
+        <li>Autopia</li>
+        <li>Mark Twain Riverboat</li>
+        <li>Autopia</li>
+      </ul>
+    </paper-shadow></div>
+
+    <div class="card"><paper-shadow z="1">    
+      <h3>Annual Passes</h3>
+      <table cellspacing="6">
+        <tr><th class="valid">Valid</th><td>Premium</td></tr>
+        <tr><th class="valid">Valid</th><td>Deluxe</td></tr>
+        <tr><th class="valid">Valid</th><td>Southern California</td></tr>
+        <tr><th class="blocked">Blocked</th><td>Southern California Select</td></tr>
+      </table>
+    </paper-shadow></div>
+
+    
+  </template>
+  <script>
+  Polymer({
+    publish: {
+      park: {
+        name: 'Happyland',
+        openHhmm: 800,
+        closeHhmm: 2100,
+      },
+      date: new Date(),
+    },
+
+    date_string: function() {
+      return this.date.toDateString();
+    },
+  
+    hhmmToTimeStr: hhmmToTimeStr,
+
+    dailyCrowds: function(park, date) {
+     return dailyCrowds(park, date);
+    }
+  });
+
+  </script>
+</polymer-element>

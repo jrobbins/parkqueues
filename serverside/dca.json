@@ -1,0 +1,65 @@
+{
+  "name": "Disney California Adventure",
+  "uid": "dca",
+  "description": "The other park at disneyland",
+  "openHhmm": 900,
+  "closeHhmm": 2100,
+  "regions": ["US", "CA", "DLR"],
+
+  
+  "lands": [
+    { "land_name": "Cars Land",
+      "rides": [
+        { "name" : "Luigi's Flying Tires", "ticket" : "B" },
+        { "name" : "Mater's Junkyard Jam'", "ticket" : "C" },
+        { "name" : "Radiator Springs Racers", "ticket" : "D" }
+      ],
+      "shows": [
+       ]
+    },
+
+    { "land_name": "Hollywood Land",
+      "rides": [
+        { "name" : "Monsters Inc", "ticket" : "B" },
+        { "name" : "Tower of Terror", "ticket" : "E" }
+      ],
+      "shows": [
+      ]
+    },
+  
+    { "land_name": "a bug's land",
+      "rides": [
+        { "name" : "Flik's Flyers", "ticket" : "B" },
+        { "name" : "Ladybug Boogie", "ticket" : "C" },
+        { "name" : "Chew Chew Train", "ticket" : "C" },
+        { "name" : "Drive 'Em Buggies", "ticket" : "C" }
+      ]
+    },
+
+    { "land_name": "Paradise Pier",
+      "rides": [
+        { "name" : "Ariel's Undersea Adv.", "ticket" : "A" },
+        { "name" : "Golden Zephyr", "ticket" : "B" },
+        { "name" : "Jumpin' Jellyfish'", "ticket" : "B" },
+        { "name" : "King Triton's Carousel", "ticket" : "B" },
+        { "name" : "Mickey's Fun Wheel", "ticket" : "C" },
+        { "name" : "Silly Symphony Swings", "ticket" : "C" },
+        { "name" : "Goofy's Sky School", "ticket" : "D" },
+        { "name" : "Toy Story Midway Mania", "ticket" : "E" },
+        { "name" : "California Screamin'", "ticket" : "E" }
+      ],
+      "shows": [
+      ]
+    },
+
+    { "land_name": "Condor Flats & Grizzly Peak",
+      "rides": [
+        { "name" : "Grizzly River", "ticket" : "C" },
+        { "name" : "Soar'n Over California", "ticket" : "E" }
+      ],
+      "shows": [
+      ]      
+    }
+  ]
+
+}

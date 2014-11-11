@@ -1,0 +1,74 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/paper-button/paper-button.html">
+<link rel="import" href="/components/paper-slider/paper-slider.html">
+
+
+<polymer-element name="ride-times-tab" attributes="ride park date localSimMinute">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    #content {
+      margin: 6px;
+    }
+    table { font-size: 12px; }
+    th { text-align: right; }
+    th, td { font-weight: normal; }
+    th { padding-right: 10px; }
+    tr.past { background-color: #ccc; }
+    </style>
+
+    <div id="content">
+      <div class="card"><paper-shadow z="1">
+        <p>
+        Estimated wait times for crowd level: {{dailyCrowds(park, date)}}%
+        </p>
+	<table style="margin: 6px" cellspacing="0" cellpadding="2" width="90%">
+	  <template repeat="{{minute in openMinutes()}}">
+	    <tr class="{{ {'past': inPast(minute)} | tokenList }}">
+	      <th>{{simMinuteToTimeStr(minute)}}</th>
+	      <th>
+		{{waitTime(minute)}}
+	      </th>
+	      <td width="100%"
+		 ><div style="width:{{waitTime(minute) * 2}}px;"
+		       class="standby-tier-{{standbyTier(waitTime(minute))}}">&nbsp;</div></td>
+	    </tr>
+	  </template>
+	</table>
+      </paper-shadow></div>
+
+    </div>
+  </template>
+
+  <script>
+  Polymer({
+    ride: {},
+    park: {},
+    date: new Date(),
+    localSimMinute: 11*60,  // 11:00am
+  
+    openMinutes: function() {
+      var minutes = [];
+      for (var i=8*60; i<22*60; i+=30) {
+	minutes.push(i);
+      }	
+      return minutes;
+    },
+    waitTime: waitTime,
+    standbyTier: standbyTier,
+    simMinuteToTimeStr: simMinuteToTimeStr,
+
+    inPast: function(minute) {
+      return minute < this.localSimMinute;
+    },
+
+    dailyCrowds: function(park, date) {
+     return dailyCrowds(park, date);
+    }
+ 
+  });
+  </script>
+</polymer-element>

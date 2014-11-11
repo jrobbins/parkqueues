@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Disneyland - Theme Park Queues</title>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="/components/platform/platform.js"></script>
+  <script src="/times.js"></script>
+  <script src="/crowds.js"></script>
+  <script src="/models/park.js"></script>
+
+  <link rel="import" href="/components/font-roboto/roboto.html">
+  <link rel="import" href="/components/core-animated-pages/core-animated-pages.html">
+
+  <link rel="import" href="elements/main-page.html">
+  <link rel="import" href="elements/ride-page.html">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+  
+</head>
+
+<body fullbleed unresolved>
+
+<!-- I would like to do a hero-transition between pages, but it does not seem to work. -->
+<core-animated-pages id="mainpages" selected="mainpage"  layout fit transitions="">
+  <main-page name="mainpage"></main-page>
+  <ride-page name="ridepage"></ride-page>
+</core-animated-pages>
+    
+
+
+</body>
+
+</html>

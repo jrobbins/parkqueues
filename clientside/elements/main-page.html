@@ -1,0 +1,97 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/core-icon-button/core-icon-button.html">
+<link rel="import" href="/components/core-header-panel/core-header-panel.html">
+<link rel="import" href="/components/core-scaffold/core-scaffold.html">
+<link rel="import" href="/components/core-menu/core-menu.html">
+<link rel="import" href="/components/core-item/core-item.html">
+<link rel="import" href="/components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="/components/core-animated-pages/transitions/slide-from-right.html">
+<link rel="import" href="/components/core-pages/core-pages.html">
+<link rel="import" href="/components/paper-tabs/paper-tabs.html">
+
+<link rel="import" href="/services/park-service.html">
+<link rel="import" href="/elements/hours-tab.html">
+<link rel="import" href="/elements/ride-tab.html">
+<link rel="import" href="/elements/show-tab.html">
+<link rel="import" href="/elements/food-tab.html">
+
+
+<polymer-element name="main-page" attributes="park">
+  <template>
+    <style>
+      core-menu div {
+        min-height: 34px;
+        padding: 8px;
+        background-color: #338;
+        color: white;
+      }
+      core-menu core-item {
+        margin-left: 10px;
+      }
+      #parkname {
+        width: 60%;
+        overflow-x: hidden;
+        white-space: nowrap;
+      }
+    </style>
+  <park-service id="service" selected="{{selectedPark}}" park="{{park}}"></park-service>
+
+  <core-scaffold id="scaffold" mode="scroll" responsiveWidth="2000px">
+
+    <core-header-panel navigation flex>
+      <core-toolbar>Theme Park Queues</core-toolbar>
+      <core-menu theme="core-light-theme" selected="{{selectedPark}}">
+	<div layout horizontal center flex>Southern California</div>
+	  <core-item name="disneyland" label="Disneyland" horizontal center layout></core-item>
+	  <core-item name="dca" label="DCA" horizontal center layout></core-item>
+	<div layout horizontal center>Northern California</div>
+	  <core-item name="greatamerica" label="Great America" horizontal center layout></core-item>
+      </core-menu>
+    </core-header-panel>
+    
+    <div tool flex id="parkname">{{park.name}}</div>
+    <core-icon-button icon="today" tool></core-icon-button>
+    <core-icon-button icon="refresh" tool></core-icon-button>
+
+    <div layout fit>
+        <paper-tabs id="tabs" selected="{{selectedTab}}" self-end>
+          <paper-tab name="hours">Hours</paper-tab>
+          <paper-tab name="rides">Rides</paper-tab>
+          <paper-tab name="shows">Shows</paper-tab>
+          <paper-tab name="food">Food</paper-tab>
+          <paper-tab name="fun">Fun</paper-tab>
+          <paper-tab name="trade">Trade</paper-tab>
+        </paper-tabs>
+
+
+	<core-animated-pages id="tabpanels" selected="{{selectedTab}}"  layout center vertical
+			     transitions="slide-from-right">
+	  <hours-tab name="hours" park="{{park}}" date="{{date}}"></hours-tab>
+          <ride-tab name="rides" park="{{park}}" date="{{date}}"></ride-tab>
+	  <show-tab name="shows" park="{{park}}" date="{{date}}"></show-tab>
+	  <food-tab name="food" park="{{park}}"></food-tab>
+	</core-animated-pages>
+
+    </div>
+
+  </core-scaffold>
+    
+
+  </template>
+  <script>
+  Polymer({
+    selectedPark: 'disneyland',
+    selectedTab: 'hours',
+    park: { name: 'Loading...'},
+    date: new Date(),
+
+    selectedParkChanged: function() {
+      var scaf = this.$.scaffold;
+      console.log(scaf);
+      scaf.closeDrawer();
+    }
+  });
+
+  
+  </script>
+</polymer-element>

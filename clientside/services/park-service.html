@@ -1,0 +1,37 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/core-ajax/core-ajax.html">
+
+<polymer-element name="park-service" attributes="selected park">
+  <template>
+    <style>
+    :host {
+      display: none;
+    }
+    </style>
+    <core-ajax id="ajax"
+      auto
+      url="/api/{{selected}}.json"
+      on-core-response="{{parkLoaded}}"
+      handleAs="json">
+    </core-ajax>
+  </template>
+  <script>
+  Polymer('park-service', {
+    created: function() {
+      this.park = new Park();
+    },
+    parkLoaded: function() {
+      this.park = new Park(this.$.ajax.response);
+    },
+    parkLoadedx: function() {
+      // Make a copy of the loaded data
+      var temp_park = {};
+      var response = this.$.ajax.response;
+      for (key in response) {
+        temp_park[key] = response[key];
+      }
+      this.park = temp_park;  /* Use constructor */
+    }
+  });
+  </script>
+</polymer-element>

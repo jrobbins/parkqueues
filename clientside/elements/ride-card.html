@@ -1,0 +1,92 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/core-icon-button/core-icon-button.html">
+ 
+<polymer-element name="ride-card" attributes="ride park date">
+  <template>
+    <style>    
+    .capsule {
+      display: block;
+      position: relative;
+      background-color: white;
+      padding: 4px 0;
+      width: 102px;
+      font-weight: 300;
+      border-radius: 4px;
+      margin: 2px;
+      overflow-y: hidden;
+    }
+    
+    .standby {
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .name {
+      font-size: 14px;
+      height: 2.3em;
+      text-align: center;
+      padding: 0 4px;
+      /* white-space: nowrap; */
+    }
+
+    .badges {
+      font-size: 9px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0;
+    }
+
+    .badge {
+      font-weight: normal;
+      background: #229;
+      color: white;
+      padding: 1px 2px;
+      border-radius: 3px;
+      margin: 1px;
+    }
+    </style>
+
+
+    <div class="capsule standby-tier-{{standbyTier(standbyTime())}}"
+	 layout vertical center on-click="{{showDetail}}" hero-id="hero">
+      <div class="standby">
+	{{standbyTime()}}
+	<span class="badges">
+          <template if="{{ride.fastpass}}"><span class="badge">FP</span></template
+          ><template if="{{ride.singlerider}}"><span class="badge">SR</span></template>
+	</span>
+      </div>
+      <div class="name">{{ride.name}}</div>
+    </div>
+
+  </template>
+  <script>
+  Polymer({
+    standbyTime: function() {
+      if (this.ride.ticket === 'A') return 10;
+      if (this.ride.ticket === 'B') return 20;
+      if (this.ride.ticket === 'C') return 30;
+      if (this.ride.ticket === 'D') return 40;
+      if (this.ride.ticket === 'E') return 50;
+      if (this.ride.ticket === 'EE') return 90;
+    },
+
+    standbyTier: standbyTier,
+
+    showDetail: function() {
+      var ridepage = document.querySelector('ride-page');
+      ridepage.ride = this.ride;
+      ridepage.park = this.park;
+      ridepage.date = this.date;
+      var mainpages = document.getElementById('mainpages');
+      mainpages.selected = 'ridepage';
+    }
+  });
+
+  </script>
+</polymer-element>

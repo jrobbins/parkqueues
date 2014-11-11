@@ -1,0 +1,36 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/paper-shadow/paper-shadow.html">
+
+<link rel="import" href="show-card.html">
+
+<polymer-element name="show-tab" attributes="park date">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    </style>
+
+    <div>
+      <template repeat="{{schedule_part in park.schedule_parts}}">
+        <div class="card"><paper-shadow z="1">
+	<h3>{{schedule_part.part_name}}</h3>
+	<template repeat="{{show in schedule_part.shows}}"><show-card
+          name="{{show.name}}" times="{{show.times}}">
+        </show-card></template>
+        </paper-shadow></div>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+  Polymer({
+    publish: {
+      park: {},
+      date: new Date()
+    }
+  });
+  </script>
+</polymer-element>

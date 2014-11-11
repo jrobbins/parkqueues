@@ -1,0 +1,84 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/paper-button/paper-button.html">
+<link rel="import" href="/components/paper-slider/paper-slider.html">
+
+<link rel="import" href="ride-card.html">
+
+<polymer-element name="ride-tab" attributes="park date">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    ride-card {
+      display: inline-block;
+      margin: 0;
+    }
+    h3 {
+      color: #666;
+      margin: 14px 3px 3px 3px;
+    }
+    #timebar {
+      background-color: #b3e5fc;
+      color: #3f51b5;
+      font-size: 10pt;
+      white-space: nowrap;
+      padding: 0 8px;
+    }
+    #timebar paper-button {
+      font-size: 10px;
+    }
+    #content {
+      margin: 2px;
+    }
+
+    #content p {
+      font-size: small;
+      margin: 5em .2em;
+      padding: .4em 1em;
+      color: #999;
+      border-top: 1px solid #888;
+    }
+    </style>
+    
+    <core-toolbar id="timebar" class="narrow">
+      Local time: <span style="display: inline-block; width:6em; text-align: right">{{simTime(simMinute)}}</span>
+      <paper-slider min="540" max="1200" value="{{simMinute}}" step="30"></paper-slider>
+      <paper-button label="Now" raisedButton on-tap="{{setNow}}"></paper-button>
+    </core-toolbar>
+
+    <div id="content">
+    <template repeat="{{land in park.lands}}">
+	<h3>{{land.name}}</h3>
+	<template repeat="{{ride in land.rides}}"><ride-card
+          park="{{park}}" ride="{{ride}}" date="{{date}}">
+        </ride-card></template>
+    </template>
+
+    <p>
+      Estimates are based on a computer model and may not be up-to-date.
+      All trademarks are held by their respective owners.
+    </p>
+
+    </div>
+
+
+  </template>
+
+  <script>
+  Polymer({
+    publish: {
+      openingMinute: 9 * 60,
+      closingMinute: 20 * 60,
+      simMinute: 10 * 60,
+      park: {},
+      date: new Date()
+    },
+    simTime: simMinuteToTimeStr,
+    setNow: function() {
+      this.simMinute = 10 * 60;
+    }
+  });
+  </script>
+</polymer-element>

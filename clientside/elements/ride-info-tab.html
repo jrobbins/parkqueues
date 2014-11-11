@@ -1,0 +1,51 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/paper-button/paper-button.html">
+<link rel="import" href="/components/paper-slider/paper-slider.html">
+
+
+<polymer-element name="ride-info-tab" attributes="ride">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    #content {
+      margin: 2px;
+    }
+    th {
+      text-align: right;
+    }
+    </style>
+
+    <div id="content">
+      <div class="card"><paper-shadow z="1">
+	{{ride.description}}
+      </paper-shadow></div>
+
+      <div class="card"><paper-shadow z="1">
+	<table style="margin: 6px" cellpadding="4">
+	  <template repeat="{{fact in ride.facts}}">
+  	    <tr><th>{{fact[0]}}</th><td>{{fact[1]}}</td></tr>
+	  </template>
+	</table>
+      </paper-shadow></div>
+
+      <div class="card"><paper-shadow z="1">
+	<ul>
+  	  <template repeat="{{tip in ride.tips}}">
+  	    <li>{{tip}}</li>
+	  </template>
+	</ul>
+      </paper-shadow></div>
+      
+    </div>
+
+  </template>
+
+  <script>
+  Polymer({
+    ride: {}
+  });
+  </script>
+</polymer-element>

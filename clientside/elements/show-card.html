@@ -1,0 +1,37 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/components/core-icon-button/core-icon-button.html">
+
+<polymer-element name="show-card" attributes="name times">
+  <template>
+    <style>
+    .name {
+      font-size: 18px;
+      white-space: nowrap;
+    }
+    .times {
+      font-size: 14px;
+      white-space: nowrap;
+      margin: 0 0 6px 2em;
+    }
+    </style>
+
+    <div class="name">{{name}}</div>
+    <div class="times">{{timesString()}}</div>
+
+  </template>
+  <script>
+  Polymer({
+    publish: {
+      times: []
+    },
+    timesString: function() {
+      var self = this;
+      var parts = this.times.map(function(t) {
+        return hhmmToTimeStr(t);
+        });
+       return parts.join(', ');
+    }
+  });
+
+  </script>
+</polymer-element>

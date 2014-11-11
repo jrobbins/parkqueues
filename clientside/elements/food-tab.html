@@ -1,0 +1,34 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="food-card.html">
+
+<polymer-element name="food-tab" attributes="park date">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    food-card {
+      display: inline-block;
+      margin: 0;
+    }
+    </style>
+    
+    <div>
+      <template repeat="{{restaurant in park.restaurants}}"><food-card
+          ticket="{{restaurant.ticket}}"
+          land="{{restaurant.land}}"
+          name="{{restaurant.name}}">
+        </food-card></template>
+    </div>
+  </template>
+
+  <script>
+  Polymer({
+    publish: {
+      park: {},
+      date: new Date()
+    }
+  });
+  </script>
+</polymer-element>

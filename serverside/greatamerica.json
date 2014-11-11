@@ -1,0 +1,88 @@
+{
+  "name": "Great America",
+  "description": "Bay Area's most exciting theme park",
+  "openHhmm": 900,
+  "closeHhmm": 2100,
+  "regions": ["US", "CA"],
+
+
+  "lands": [
+    { "land_name": "Family Rides",
+      "rides": [
+        { "name" : "Barney Speedway", "ticket" : "A", "sign_url": null },
+        { "name" : "Rip Roaring Rapids", "ticket" : "B", "sign_url": null },
+        { "name" : "Rue Le Dodge", "ticket" : "B", "sign_url": null },
+        { "name" : "Star Tower", "ticket" : "B" },
+        { "name" : "Carousel Columbia", "ticket" : "B" },
+        { "name" : "Celebration Swings", "ticket" : "B" },
+        { "name" : "Mumble's Wild Ride", "ticket" : "B", "sign_url": null },
+        { "name" : "Woodstock Express", "ticket" : "B", "sign_url": null },
+        { "name" : "Whitewater Falls", "ticket" : "B" },
+        { "name" : "Flying Eagles", "ticket" : "B" },
+        { "name" : "Eagle's Flight", "ticket" : "B", "sign_url": null },
+        { "name" : "Loggers Run", "ticket" : "C", "sign_url": null },
+        { "name" : "Psycho Mouse", "ticket" : "C", "sign_url": null }
+      ],
+      "shows": []
+    },
+
+    { "land_name": "Thrill Rides",
+      "rides": [
+        { "name" : "Gold Striker", "ticket" : "C" },
+        { "name" : "The Grizzly", "ticket" : "C", "sign_url": null },
+        { "name" : "FireFall", "ticket" : "C" },
+        { "name" : "Tiki Twirl", "ticket" : "C", "sign_url": null },
+        { "name" : "The Demon", "ticket" : "C" },
+        { "name" : "Drop Tower", "ticket" : "C", "sign_url": null },
+        { "name" : "H.M.B. Endeavor", "ticket" : "C", "sign_url": null },
+        { "name" : "Flight Deck", "ticket" : "D" },
+        { "name" : "Delirium", "ticket" : "D", "sign_url": null },
+        { "name" : "Vortex", "ticket" : "D" },
+        { "name" : "Xtreme Skyflyer", "ticket" : "D" }
+      ],
+      "shows": []
+    },
+  
+    { "land_name": "Planet Snoopy",
+      "rides": [
+        { "name" : "Woodstock Express", "ticket" : "C", "sign_url": null },
+        { "name" : "PEANUTS Pirates", "ticket" : "B", "sign_url": null },
+        { "name" : "Love Buggies", "ticket" : "A", "sign_url": null },
+        { "name" : "Pumpkin Patch", "ticket" : "A", "sign_url": null }
+      ]
+    },
+
+    { "land_name": "KidZville",
+      "rides": [
+        { "name" : "Classic Cars", "ticket" : "A", "sign_url": null },
+        { "name" : "Fender Bender 500", "ticket" : "A", "sign_url": null },
+        { "name" : "Ghost Chase", "ticket" : "B", "sign_url": null },
+        { "name" : "Junior Jump Club", "ticket" : "B", "sign_url": null },
+        { "name" : "KidZville Pet Shop", "ticket" : "B", "sign_url": null },
+        { "name" : "KidZair", "ticket" : "B", "sign_url": null },
+        { "name" : "Snail Races", "ticket" : "B", "sign_url": null },
+        { "name" : "Swing Swing Swing", "ticket" : "C", "sign_url": null },
+        { "name" : "Taxi Jam", "ticket" : "C", "sign_url": null }
+      ],
+      "shows": [
+      ]
+    },
+
+    { "land_name": "Boomerang Bay",
+      "rides": [
+        { "name" : "Tasmanian Typhoon", "ticket" : "B", "sign_url": null },
+        { "name" : "Castaway Creek", "ticket" : "B", "sign_url": null },
+        { "name" : "Screamin' Wombat", "ticket" : "B", "sign_url": null },
+        { "name" : "Great Barrier Reef", "ticket" : "C", "sign_url": null },
+        { "name" : "Kookaburra Cay", "ticket" : "B", "sign_url": null },
+        { "name" : "Jackaroo Landing", "ticket" : "C", "sign_url": null },
+        { "name" : "Didgeridoo Falls", "ticket" : "C", "sign_url": null },
+        { "name" : "Down Under Thunder", "ticket" : "D", "sign_url": null },
+        { "name" : "Ripsnort Ridge", "ticket" : "D", "sign_url": null }
+      ],
+      "shows": [
+      ]      
+    }
+  ]
+
+}

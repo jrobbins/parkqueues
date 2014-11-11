@@ -1,0 +1,104 @@
+{
+  "name": "Disneyland",
+  "description": "The Happiest Place on Earth",
+  "openHhmm": 901,
+  "closeHhmm": 2100,
+  "regions": ["US", "CA", "DLR"],
+
+  
+  "lands": [
+    { "land_name": "Toontown",
+      "rides": [
+        { "name" : "Mickey's House", "ticket" : "C" },
+        { "name" : "Minnie's House", "ticket" : "C" },
+        { "name" : "Gadget's Go Coaster", "ticket" : "C" },
+        { "name" : "Car Toon Spin", "ticket" : "D",
+	  "fastpass": true,
+	  "tips": ["This FP is often disconnected from others"]}
+      ],
+      "shows": [
+	 { "name": "The Bootstrappers",
+	   "times": [1000, 1100, 1200, 1300, 1430, 1530, 1630] },
+	 { "name": "Disneyland Band", "times": [1000, 1055, 1200, 1645] },
+	 { "name": "Jumbilaya Jazz",
+	   "times": [1030, 1130, 1230, 1400, 1500, 1600] },
+	 { "name": "Jedi Training",
+	   "times": [1030, 1135, 1240, 1424, 1530, 1635] }
+       ]
+    },
+
+    { "land_name": "Tomorrowland",
+      "rides": [
+        { "name" : "Monorail", "ticket" : "A",
+	  "description": "The train of tomorrow",
+	  "facts": [
+	    ["Min. Height", "None"],
+	    ["Type", "Transportation"]],
+	  "tips": [
+	    "Ask to ride in the nose",
+	    "It stops in Downtown Disneyland"]
+	  },
+        { "name" : "Innoventions", "ticket" : "A" },
+        { "name" : "Buzz Lightyear", "ticket" : "B" },
+        { "name" : "Astro Orbiters", "ticket" : "B" },
+        { "name" : "Finding Nemo Submarines", "ticket" : "C" },
+        { "name" : "Autopia", "ticket" : "D" },
+        { "name" : "Star Tours", "ticket" : "E",
+	  "fastpass": true },
+        { "name" : "Space Mountain", "ticket" : "EE",
+	  "fastpass": true, "singlerider": true }
+      ],
+      "shows": [
+	 { "name": "Pearly Band", "times": [1300, 1400, 1500] }
+      ]
+    },
+  
+    { "land_name": "Fantasyland",
+      "rides": [
+        { "name" : "King Arthur Carrousel", "ticket" : "B" },
+        { "name" : "Storybook Canal Boats", "ticket" : "B" },
+        { "name" : "Casey Jr Train", "ticket" : "B" },
+        { "name" : "Mr. Toad's Wild Ride", "ticket" : "C" },
+        { "name" : "Mad Tea Party", "ticket" : "C" },
+        { "name" : "Dumbo", "ticket" : "C" },
+        { "name" : "Snow White's Scary Adv.", "ticket" : "C" },
+        { "name" : "Pinocchio's Daring Journey", "ticket" : "D" },
+        { "name" : "Alice in Wonderland", "ticket" : "D" },
+        { "name" : "it's a small world", "ticket" : "D" },
+        { "name" : "Matterhorn Bobsleds", "ticket" : "E",
+	  "singlerider": true }
+      ]
+    },
+
+    { "land_name": "Adventureland & Frontierland",
+      "rides": [
+        { "name" : "Jungle Cruise", "ticket" : "B" },
+        { "name" : "Indiana Jones", "ticket" : "E",
+	  "fastpass": true },
+        { "name" : "Big Thunder Mountain", "ticket" : "E",
+	  "fastpass": true }
+      ],
+      "shows": [
+	 { "name": "Flag Retreat", "times": [1645] }
+      ]
+    },
+
+    { "land_name": "New Orleans Square & Critter Country",
+      "rides": [
+        { "name" : "Winnie the Pooh", "ticket" : "B" },
+        { "name" : "Canoes", "ticket" : "B" },
+        { "name" : "Pirates of the Caribbean", "ticket" : "B",
+	  "tips": ["This ride's line moves fast"] },
+        { "name" : "Haunted Mansion", "ticket" : "C" },
+        { "name" : "Splash Mountain", "ticket" : "E",
+	  "fastpass": true }
+      ],
+      "shows": [
+	 { "name": "Soundsational Parade", "times": [1900] },
+	 { "name": "Fantasmic", "times": [2000] },
+	 { "name": "Fireworks", "times": [2100] }	 
+      ]      
+    }
+  ]
+
+}
