@@ -12,6 +12,7 @@
       auto
       url="/api/{{selected}}.json"
       on-core-response="{{parkLoaded}}"
+      on-core-error="{{parkMissing}}"
       handleAs="json">
     </core-ajax>
   </template>
@@ -25,6 +26,9 @@
     },
     parkLoaded: function() {
       this.park = new Park(this.$.ajax.response);
+    },
+    parkMissing: function() {
+      this.park = new Park({name: 'Coming soon', description: 'Coming soon'});
     }
   });
   </script>
