@@ -34,7 +34,7 @@ body /deep/ paper-tabs {
   margin: 10px;
 }
 
-body /deep/ div.card {
+body /deep/ paper-shadow.card {
   color: #333;
   background: #fefefe;
   border: 1px solid #eee;

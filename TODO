@@ -9,3 +9,16 @@ Things to do:
 + Implement dialog to choose the date
   - color days according to crowd estimates
 
++ Define a bunch more parks
+
++ Implement hours by calendar
+
++ Implement ride closures, show "CLOSED" for time of a closed ride
+
++ Implement annual pass blocked dates
+
++ Implement overlay data and reload button
+  - key by uid so that ride name could change
+  - uid is unique within a park, so there can be two "Space Mountain" rides
+
++ Park menu accordian?
