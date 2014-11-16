@@ -16,21 +16,15 @@
     </core-ajax>
   </template>
   <script>
-  Polymer('park-service', {
+  Polymer({
     created: function() {
       this.park = new Park();
     },
+    selectedChanged: function() {
+      this.park = new Park({name: 'Loading...'});
+    },
     parkLoaded: function() {
       this.park = new Park(this.$.ajax.response);
-    },
-    parkLoadedx: function() {
-      // Make a copy of the loaded data
-      var temp_park = {};
-      var response = this.$.ajax.response;
-      for (key in response) {
-        temp_park[key] = response[key];
-      }
-      this.park = temp_park;  /* Use constructor */
     }
   });
   </script>

@@ -1,0 +1,32 @@
+[
+ { "regionName": "California",
+   "parks": ["Disneyland CA", "Disney California Adventure",
+             "Magic Mountain", "Knotts Berry Farm", "Legoland CA",
+             "Universal Studios CA", "Great America"]
+ },
+ { "regionName": "Florida",
+   "parks": ["Magic Kingdom", "EPCOT", "Disney's Hollywood Studios", "Disney's Animal Kingdom",
+    	     "Legoland FL", "Universal Studios FL"]
+ },
+ { "regionName": "Japan",
+   "parks": ["Disneyland JP", "Disneysea"]
+ },
+ { "regionName": "France",
+   "parks": ["Disneyland FR", "Walt Disney Studios"]
+ },
+ { "regionName": "Hong Kong",
+   "parks": ["Disneyland HK"]
+ },
+ { "regionName": "England",
+   "parks": ["Legoland Windsor"]
+ },
+ { "regionName": "Denmark",
+   "parks": ["Legoland Billund"]
+ },
+ { "regionName": "Germany",
+   "parks": ["Legoland Deutschland"]
+ },
+ { "regionName": "Malaysia",
+   "parks": ["Legoland Malaysia"]
+ }
+]

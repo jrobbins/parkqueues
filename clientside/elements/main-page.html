@@ -9,6 +9,7 @@
 <link rel="import" href="/components/core-pages/core-pages.html">
 <link rel="import" href="/components/paper-tabs/paper-tabs.html">
 
+<link rel="import" href="/services/park-list-service.html">
 <link rel="import" href="/services/park-service.html">
 <link rel="import" href="/elements/hours-tab.html">
 <link rel="import" href="/elements/ride-tab.html">
@@ -34,6 +35,8 @@
         white-space: nowrap;
       }
     </style>
+
+  <park-list-service parks="{{parks}}"></park-list-service>
   <park-service id="service" selected="{{selectedPark}}" park="{{park}}"></park-service>
 
   <core-scaffold id="scaffold" mode="scroll" responsiveWidth="2000px">
@@ -41,11 +44,13 @@
     <core-header-panel navigation flex>
       <core-toolbar>Theme Park Queues</core-toolbar>
       <core-menu theme="core-light-theme" selected="{{selectedPark}}">
-	<div layout horizontal center flex>Southern California</div>
-	  <core-item name="disneyland" label="Disneyland" horizontal center layout></core-item>
-	  <core-item name="dca" label="DCA" horizontal center layout></core-item>
-	<div layout horizontal center>Northern California</div>
-	  <core-item name="greatamerica" label="Great America" horizontal center layout></core-item>
+	<template repeat="{{region in parks}}">
+  	  <div layout horizontal center flex>{{region.regionName}}</div>
+	  <template repeat="{{parkName in region.parks}}">
+            <core-item name="{{makeUid(parkName)}}" label="{{parkName}}"
+		       horizontal center layout></core-item>
+	  </template>
+	</template>
       </core-menu>
     </core-header-panel>
     
@@ -80,16 +85,16 @@
   </template>
   <script>
   Polymer({
-    selectedPark: 'disneyland',
+    selectedPark: 'disneylandca',
     selectedTab: 'hours',
+    parks: [ {regionName: "Loading...", parks: []}],
     park: { name: 'Loading...'},
     date: new Date(),
 
     selectedParkChanged: function() {
-      var scaf = this.$.scaffold;
-      console.log(scaf);
-      scaf.closeDrawer();
-    }
+      this.$.scaffold.closeDrawer();
+    },
+    makeUid: makeUid
   });
 
   
