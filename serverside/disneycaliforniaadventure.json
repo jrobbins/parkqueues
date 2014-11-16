@@ -1,6 +1,5 @@
 {
   "name": "Disney California Adventure",
-  "uid": "dca",
   "description": "The other park at disneyland",
   "openHhmm": 900,
   "closeHhmm": 2100,

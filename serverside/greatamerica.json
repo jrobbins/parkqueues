@@ -36,7 +36,7 @@
         { "name" : "Drop Tower", "ticket" : "C", "sign_url": null },
         { "name" : "H.M.B. Endeavor", "ticket" : "C", "sign_url": null },
         { "name" : "Flight Deck", "ticket" : "D" },
-        { "name" : "Delirium", "ticket" : "D", "sign_url": null },
+        { "name" : "Delirium", "ticket" : "D" },
         { "name" : "Vortex", "ticket" : "D" },
         { "name" : "Xtreme Skyflyer", "ticket" : "D" }
       ],
