@@ -22,13 +22,14 @@
       this.park = new Park();
     },
     selectedChanged: function() {
-      this.park = new Park({name: 'Loading...'});
+      this.park = new Park({name: 'Loading ' + this.selected + '...'});
     },
     parkLoaded: function() {
       this.park = new Park(this.$.ajax.response);
     },
     parkMissing: function() {
-      this.park = new Park({name: 'Coming soon', description: 'Coming soon'});
+      var comingsoon = 'Coming soon: ' + this.selected;
+      this.park = new Park({name: comingsoon, description: comingsoon});
     }
   });
   </script>
