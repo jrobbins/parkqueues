@@ -1,5 +1,17 @@
 "use strict";
 
+/* Wait time estimation works like this:
+   1. We need the daily max crowd level from the calendar.  This itself is
+      estimated based on rules about seasons, holidays, days of the week,
+      weather, and local events.  Crowd levels are 0..100 meaning a percentage
+      of park capacity.
+   2. We estimate the crowd level based on crowd level for any minute of the day.
+      This is based on entry gate rate, meal times, sunset, and closing time.
+   3. Each ride has a "Ticket" that shows how popular it is.
+   4. We look up the daily demand curve based on the ticket.
+*/
+
+
 var SUN = 0, MON = 1, TUE = 2, WED = 3, THU = 4, FRI = 5, SAT = 6;
 
 var CROWD_RULES = [
@@ -85,3 +97,93 @@ function checkCondition(date, rule) {
 
     return true;
 }
+
+
+// Assume fill rate of 1% per minute for first 20% of the daily crowd,
+// then 0.5% for the next 40% of the daily crowd, and the final 40% of
+// the crowd comes in at .25% per minute.  E.g., a 30% day fills to 6%
+// in 6 minutes, then takes another 24 minutes to reach add 12% and
+// reach 18%.  It takes another 48 minutes to reach the full 30%,
+// which is 78 minutes after park opening.  A 100% day fills to 20% in
+// 20 minutes and adds another 40% after 80 minutes, so it is 60% full at
+// 100 minutes after opening.  The last 40% of people come in over the next
+// 160 minutes.  So, it reaches 100% after 260 minutes (4 hours and 20 minutes).
+// Draining the park does the same thing in reverse.
+var FILL_RATE_BRACKETS = [[1.0, 0.20], [0.50, 0.40], [0.25, 0.40]];
+
+
+// A Gate Table is an array of floats that show the cummulative percentage
+// of park capacaity that has passed through the gates as of that minute
+// since the park opened.  E.g., in the zero-th minute 0% of people have gone
+// through the gates.   If the park will reach 50% max capacity that day,
+// the first 20% of that 50% = 10% will pass through in the first 10 minutes,
+// so the next 10 entries are 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10.  Then, 40%
+// of the 50% = 20% pass through at the rate of .5 per minute, so the next
+// 40 entries are 10.5, 11, 11.5, 12, 12.5, etc. up to 30.
+function generateGateTable(maxCrowds) {
+    var gateTable = [0];
+    for (var bracket of FILL_RATE_BRACKETS) {
+	var fillRate = bracket[0];
+	var crowdInBracket = Math.floor(maxCrowds * bracket[1]);
+	var minutesInBracket = Math.floor(crowdInBracket / fillRate);
+	for (var i = 0; i < minutesInBracket; i++) {
+	    gateTable.push(gateTable[gateTable.length - 1] + fillRate);
+	}
+    }
+
+    return gateTable;
+}
+
+
+function cumulativeGate(minutesSinceOpen, gateTable) {
+    if (minutesSinceOpen > gateTable.length) {
+	return gateTable[gateTable.length - 1];
+    }
+    return gateTable[minutesSinceOpen];
+}
+
+
+
+function minuteCrowds(park, maxCrowds, simMinute) {
+    var openMinute = hhmmToSimMinute(park.openHhmm);
+    var closeMinute = hhmmToSimMinute(park.closeHhmm);
+    if (simMinute < openMinute || simMinute > closeMinute) return 0;
+
+    // TODO: handle magic mornings
+    var minutesSinceOpen = simMinute - openMinute;
+    var minutesUntilClose = closeMinute - simMinute;
+    var gateTable = generateGateTable(maxCrowds);
+
+    var minuteCrowd =  Math.min(cumulativeGate(minutesSinceOpen, gateTable),
+				cumulativeGate(minutesUntilClose, gateTable));
+    // TODO: lunch and dinner lulls
+    return minuteCrowd;
+}
+
+
+var MAX_WAIT_TIMES = {
+    'A': 20,
+    'B': 30,
+    'C': 45,
+    'D': 60,
+    'E': 75,
+    'F': 120,
+    'G': 180
+}
+
+
+/* Estimate the wait time for a ride... magic... */
+function waitTime(minuteCrowds, ticket) {
+    console.log('called waitTime(' + minuteCrowds + ', ' + ticket);
+    return Math.floor(MAX_WAIT_TIMES[ticket] * minuteCrowds / 101) + 1;
+}
+
+
+function standbyTime(park, ride, date, simMinute) {
+    var maxCrowdLevel = dailyCrowds(park, date);
+    var minuteCrowdLevel = minuteCrowds(park, maxCrowdLevel, simMinute);
+    var result = waitTime(minuteCrowdLevel, ride.ticket);
+    result += ride.plus;
+    return Math.max(1, result);
+}
+    

@@ -45,7 +45,7 @@
         { "name" : "Autopia", "ticket" : "D" },
         { "name" : "Star Tours", "ticket" : "E",
 	  "fastpass": true },
-        { "name" : "Space Mountain", "ticket" : "EE",
+        { "name" : "Space Mountain", "ticket" : "F",
 	  "fastpass": true, "singlerider": true }
       ],
       "shows": [
@@ -62,9 +62,10 @@
         { "name" : "Mad Tea Party", "ticket" : "C" },
         { "name" : "Dumbo", "ticket" : "C" },
         { "name" : "Snow White's Scary Adv.", "ticket" : "C" },
-        { "name" : "Pinocchio's Daring Journey", "ticket" : "D" },
-        { "name" : "Alice in Wonderland", "ticket" : "D" },
+        { "name" : "Pinocchio's Daring Journey", "ticket" : "C" },
+        { "name" : "Alice in Wonderland", "ticket" : "C" },
         { "name" : "it's a small world", "ticket" : "D" },
+        { "name" : "Peter Pan's Flight", "ticket" : "D", "plus": 15 },
         { "name" : "Matterhorn Bobsleds", "ticket" : "E",
 	  "singlerider": true }
       ]

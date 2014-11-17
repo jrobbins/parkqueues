@@ -94,6 +94,7 @@ function Ride(data, park) {
     this.uid = data.uid || makeUid(this.name);
     this.description = data.description || "missing description";
     this.ticket = data.ticket || "C";
+    this.plus = data.plus || 0;
     this.fastpass = data.fastpass;
     this.singlerider = data.singlerider;
     this.facts = data.facts || [];

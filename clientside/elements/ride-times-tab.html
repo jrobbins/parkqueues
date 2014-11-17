@@ -30,11 +30,11 @@
 	    <tr class="{{ {'past': inPast(minute)} | tokenList }}">
 	      <th>{{simMinuteToTimeStr(minute)}}</th>
 	      <th>
-		{{waitTime(minute)}}
+		{{standbyTime(park, ride, date, minute)}}
 	      </th>
 	      <td width="100%"
-		 ><div style="width:{{waitTime(minute) * 2}}px;"
-		       class="standby-tier-{{standbyTier(waitTime(minute))}}">&nbsp;</div></td>
+		 ><div style="width:{{standbyTime(park, ride, date, minute) * 2}}px;"
+		       class="standby-tier-{{standbyTier(standbyTime(park, ride, date, minute))}}">&nbsp;</div></td>
 	    </tr>
 	  </template>
 	</table>
@@ -57,7 +57,7 @@
       }	
       return minutes;
     },
-    waitTime: waitTime,
+    standbyTime: standbyTime,
     standbyTier: standbyTier,
     simMinuteToTimeStr: simMinuteToTimeStr,
 

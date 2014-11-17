@@ -11,7 +11,7 @@
       "rides": [
         { "name" : "Luigi's Flying Tires", "ticket" : "B" },
         { "name" : "Mater's Junkyard Jam'", "ticket" : "C" },
-        { "name" : "Radiator Springs Racers", "ticket" : "D" }
+        { "name" : "Radiator Springs Racers", "ticket" : "G" }
       ],
       "shows": [
        ]

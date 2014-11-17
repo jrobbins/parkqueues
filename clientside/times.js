@@ -12,28 +12,15 @@ function standbyTier(estMinutes) {
 }
 
 
-/* Wait time estimation works like this:
-   1. We need the crowd level from the calendar.  This itself is estimated based
-      on rules about seasons, holidays, days of the week, weather, and local events.
-   2. We estimate the total crowd size based on crowd level for any minute of the day.
-      This is based on entry gate rate, meal times, sunset, and closing time.
-   3. Each ride has a "Ticket" that shows how popular it is.
-   4. We look up the daily demand curve based on the ticket.
-
-/* Estimate the wait time for a ride... magic... */
-function waitTime(minute) {
-    if (minute > 19*60) minute = 37*60 - minute;
-    var waitTime = Math.floor(minute / 20) - 19;
-    if (minute > 11*60 && minute <= 13*60) waitTime *= 0.8;
-    if (minute > 17*60 && minute <= 19*60) waitTime *= 0.8;
-    return Math.floor(waitTime);
+/* Convert an int like 830 to number of minutes since midnight. */
+function hhmmToSimMinute(hhmm) {
+    return (Math.floor(hhmm / 100) * 60) + hhmm % 100;
 }
 
 
 /* Convert an int like 830 into a string "8:30am". */
 function hhmmToTimeStr(hhmm) {
-    var simMinute = (Math.floor(hhmm / 100) * 60) + hhmm % 100;
-    return simMinuteToTimeStr(simMinute);
+    return simMinuteToTimeStr(hhmmToSimMinute(hhmm));
 }
 
 

@@ -1,7 +1,7 @@
 <link rel="import" href="/components/polymer/polymer.html">
 <link rel="import" href="/components/core-icon-button/core-icon-button.html">
  
-<polymer-element name="ride-card" attributes="ride park date">
+<polymer-element name="ride-card" attributes="ride park date simMinute">
   <template>
     <style>    
     .capsule {
@@ -52,10 +52,10 @@
     </style>
 
 
-    <div class="capsule standby-tier-{{standbyTier(standbyTime())}}"
+    <div class="capsule standby-tier-{{standbyTier(standbyTime(park, ride, date, simMinute))}}"
 	 layout vertical center on-click="{{showDetail}}" hero-id="hero">
       <div class="standby">
-	{{standbyTime()}}
+	{{standbyTime(park, ride, date, simMinute)}}
 	<span class="badges">
           <template if="{{ride.fastpass}}"><span class="badge">FP</span></template
           ><template if="{{ride.singlerider}}"><span class="badge">SR</span></template>
@@ -67,15 +67,7 @@
   </template>
   <script>
   Polymer({
-    standbyTime: function() {
-      if (this.ride.ticket === 'A') return 10;
-      if (this.ride.ticket === 'B') return 20;
-      if (this.ride.ticket === 'C') return 30;
-      if (this.ride.ticket === 'D') return 40;
-      if (this.ride.ticket === 'E') return 50;
-      if (this.ride.ticket === 'EE') return 90;
-    },
-
+    standbyTime: standbyTime,
     standbyTier: standbyTier,
 
     showDetail: function() {

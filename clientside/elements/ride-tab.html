@@ -52,7 +52,7 @@
     <template repeat="{{land in park.lands}}">
 	<h3>{{land.name}}</h3>
 	<template repeat="{{ride in land.rides}}"><ride-card
-          park="{{park}}" ride="{{ride}}" date="{{date}}">
+          park="{{park}}" ride="{{ride}}" date="{{date}}" simMinute="{{simMinute}}">
         </ride-card></template>
     </template>
 
