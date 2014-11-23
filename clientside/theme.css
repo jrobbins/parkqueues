@@ -1,7 +1,16 @@
-body /deep/ .standby-tier-10  { background: #3aaf18; color: white; }
-body /deep/ .standby-tier-20  { background: #8a8f08; color: white; }
-body /deep/ .standby-tier-30  { background: #c0a000; color: white; }
-body /deep/ .standby-tier-45  { background: #e68100; color: white; }
-body /deep/ .standby-tier-60  { background: #bf360c; color: white; }
-body /deep/ .standby-tier-90  { background: #dd191d; color: white; }
-body /deep/ .standby-tier-120 { background: #a0120a; color: white; }
+/* Colors for ride wait times:
+  10: bright green
+  20: dark green
+  30: yellow
+  45: orange
+  60: red
+  90: dark red
+  120: very dark red
+  */
+body /deep/ .standby-tier-10  { background: hsl(90, 90%, 40%); color: white; }
+body /deep/ .standby-tier-20  { background: hsl(90, 80%, 30%); color: white; }
+body /deep/ .standby-tier-30  { background: hsl(45, 90%, 40%); color: white; }
+body /deep/ .standby-tier-45  { background: hsl(30, 80%, 40%); color: white; }
+body /deep/ .standby-tier-60  { background: hsl(14, 80%, 40%); color: white; }
+body /deep/ .standby-tier-90  { background: hsl(0, 90%, 30%); color: white; }
+body /deep/ .standby-tier-120 { background: hsl(0, 100%, 20%); color: white; }

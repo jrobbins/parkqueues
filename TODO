@@ -1,17 +1,19 @@
 Things to do:
 
-+ Implement title photos and gallery
++ CSS tweaks: hsva for wait time colors, alpha value for unimportant text
+
++ Make title photos and gallery work more like android material design:
+  - title text at bottom, scrim at bottom
+  - collapse fades to solid color
 
 + Implement the difference between a show and a showing
-
-+ Implement crowd estimates per minute
 
 + Implement dialog to choose the date
   - color days according to crowd estimates
 
 + Define a bunch more parks
 
-+ Implement hours by calendar
++ Implement park hours by calendar
 
 + Implement ride closures, show "CLOSED" for time of a closed ride
 

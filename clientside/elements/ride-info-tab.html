@@ -19,25 +19,30 @@
     </style>
 
     <div id="content">
-      <paper-shadow z="1" class="card">
+      <section>
 	{{ride.description}}
-      </paper-shadow>
+      </section>
 
-      <paper-shadow z="1" class="card">
-	<table style="margin: 6px" cellpadding="4">
-	  <template repeat="{{fact in ride.facts}}">
-  	    <tr><th>{{fact[0]}}</th><td>{{fact[1]}}</td></tr>
-	  </template>
-	</table>
-      </paper-shadow>
+      <template if="{{ride.facts.length}}">
+        <section>
+	  <table cellpadding="4">
+	    <template repeat="{{fact in ride.facts}}">
+    	      <tr><th>{{fact[0]}}</th><td>{{fact[1]}}</td></tr>
+	    </template>
+	  </table>
+        </section>
+      </template>
 
-      <paper-shadow z="1" class="card">
-	<ul>
-  	  <template repeat="{{tip in ride.tips}}">
-  	    <li>{{tip}}</li>
-	  </template>
-	</ul>
-      </paper-shadow>
+      <template if="{{ride.tips.length}}">
+        <section>
+	  <h3>Tips</h3>
+	  <ul>
+   	    <template repeat="{{tip in ride.tips}}">
+    	      <li>{{tip}}</li>
+	    </template>
+	  </ul>
+        </section>
+      </template>
       
     </div>
 

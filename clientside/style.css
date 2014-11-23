@@ -1,8 +1,8 @@
 html,body {
   height: 100%;
   margin: 0;
-  background-color: #E5E5E5;
   font-family: 'RobotoDraft', sans-serif;
+  color: hsla(0, 0%, 0%, .87);
 }
 
 core-header-panel {
@@ -32,6 +32,26 @@ body /deep/ paper-tabs {
 
 .container {
   margin: 10px;
+}
+
+body /deep/ h1,
+body /deep/ h2,
+body /deep/ h3 {
+  color: hsla(0, 0%, 0%, .59);
+}
+
+obody /deep/ .unimportant,
+body /deep/ #footer {
+  color: hsla(0, 0%, 0%, .47);
+}
+
+body /deep/ section ~ section {
+  border-top: 1px solid #ddd;
+}
+
+body /deep/ section {
+  padding: .5em;
+  background-color: white;
 }
 
 body /deep/ paper-shadow.card {

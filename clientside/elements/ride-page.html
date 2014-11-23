@@ -15,6 +15,7 @@
 <polymer-element name="ride-page" attributes="ride date">
   <template>
     <style>
+      #content { background-color: #fff; }
     </style>
     <core-header-panel id="headerpanel" mode="waterfall-tall" layout fit>
       <core-toolbar id="toolbar" hero-id="hero" on-click="{{goBack}}">
@@ -22,7 +23,7 @@
 	{{ride.name}}
       </core-toolbar>
 
-      <div layout fit>
+      <div layout fit id="content">
         <paper-tabs id="ridetabs" selected="{{selectedTab}}" self-end>
           <paper-tab name="rideinfo">About</paper-tab>
           <paper-tab name="ridetimes">Times</paper-tab>

@@ -34,6 +34,7 @@
         overflow-x: hidden;
         white-space: nowrap;
       }
+      #content { background-color: #fff; }
     </style>
 
   <park-list-service parks="{{parks}}"></park-list-service>
@@ -58,7 +59,7 @@
     <core-icon-button icon="today" tool></core-icon-button>
     <core-icon-button icon="refresh" tool></core-icon-button>
 
-    <div layout fit>
+    <div layout fit id="content">
         <paper-tabs id="tabs" selected="{{selectedTab}}" self-end>
           <paper-tab name="hours">Hours</paper-tab>
           <paper-tab name="rides">Rides</paper-tab>
