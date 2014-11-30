@@ -29,16 +29,6 @@
 
     { "land_name": "Tomorrowland",
       "rides": [
-        { "name" : "Monorail", "ticket" : "A",
-	  "description": "The train of tomorrow",
-	  "facts": [
-	    ["Min. Height", "None"],
-	    ["Type", "Transportation"]],
-	  "tips": [
-	    "Ask to ride in the nose",
-	    "It stops in Downtown Disneyland"]
-	  },
-        { "name" : "Innoventions", "ticket" : "A" },
         { "name" : "Buzz Lightyear", "ticket" : "B" },
         { "name" : "Astro Orbiters", "ticket" : "B" },
         { "name" : "Finding Nemo Submarines", "ticket" : "C" },

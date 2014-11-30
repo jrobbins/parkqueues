@@ -36,3 +36,6 @@ function simMinuteToTimeStr(simMinute) {
 }
 
 
+function dateToSimMinute(date) {
+    return date.getHours() * 60 + date.getMinutes();
+}
