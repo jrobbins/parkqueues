@@ -80,7 +80,7 @@
       trackingSimMinute: false
     },
     attached: function() {
-      setInterval(updateSimMinute.bind(this), 60*1000);
+      setInterval(this.updateSimMinute.bind(this), 60*1000);
     },
     updateSimMinute: function() {
       if (this.trackingSimMinute) {
