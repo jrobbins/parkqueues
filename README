@@ -19,14 +19,14 @@ BASIC FUNCTIONALITY:
    - Ride wait times
    - Show schedule
    - Food places
- + Clicking through a ride, show, or food place will give a page of static info
+ + Clicking through a ride, show, or food place will give more details and photos
 
 
-KILLER FEATURES (mainly in my imagination):
+PLANNED KILLER FEATURES:
  + Material design: cards, tall titles with photos
- + Choose from many theme parks, even ones that I have never visited
+ + Choose from about 40 theme parks, even ones that I have never visited
  + Ride wait times displayed in a compact format for less scrolling
- + Ride queue remaining time estimates and photos
+ + Ride queue remaining-time estimates and photos
  + Estimates for any time on any day: interactive charts and crowd calendar
  + Park and ride trivia and games
  + Most features work without needing network connectivity (after park info loaded)
@@ -43,8 +43,9 @@ without problems.
 
 To avoid copyright issues with description text and photos, I intend
 to either write the text myself and use photos that I took myself, or
-use purely creative commons content from wikipedia and give credit.  I
-will not scrape any copyrighted theme park websites for such info.
+use purely creative commons content from wikipedia and give credit.  If
+I get any info from official sites, I will be sure to follow their
+robots.txt files.
 
 Park hours, ride closures, entertainment show times, etc. can only be
 obtained from the theme park websites or other official sources.  I
