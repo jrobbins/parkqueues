@@ -103,7 +103,7 @@ function Ride(data, park) {
     if (data.sign_url === null)
       this.sign_url = null;
     else
-      this.sign_url = "/images/" + park.uid + "/" + this.uid + "_sign.jpg";
+      this.sign_url = "/parkqueues/images/" + park.uid + "/" + this.uid + "_sign.jpg";
 
     register_uid(park, this);
 }
