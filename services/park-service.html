@@ -1,5 +1,5 @@
-<link rel="import" href="/components/polymer/polymer.html">
-<link rel="import" href="/components/core-ajax/core-ajax.html">
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-ajax/core-ajax.html">
 
 <polymer-element name="park-service" attributes="selected park">
   <template>
@@ -10,7 +10,7 @@
     </style>
     <core-ajax id="ajax"
       auto
-      url="/api/{{selected}}.json"
+      url="/parkqueues/api/{{selected}}.json"
       on-core-response="{{parkLoaded}}"
       on-core-error="{{parkMissing}}"
       handleAs="json">
