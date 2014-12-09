@@ -21,13 +21,20 @@
   <template>
     <style>
       core-menu div {
+        font-weight: bold;
         min-height: 34px;
         padding: 8px;
-        background-color: #338;
-        color: white;
+        color: #526E9C;
       }
       core-menu core-item {
         margin-left: 10px;
+        padding-left: 10px;
+      }
+      core-menu core-item[disabled] {
+        color: hsla(0, 0%, 0%, .47);
+      }
+      core-menu core-item.core-selected {
+        background-color: hsla(0, 0%, 0%, .13);
       }
       #parkname {
         width: 60%;
@@ -47,8 +54,10 @@
       <core-menu theme="core-light-theme" selected="{{selectedPark}}">
 	<template repeat="{{region in parks}}">
   	  <div layout horizontal center flex>{{region.regionName}}</div>
-	  <template repeat="{{parkName in region.parks}}">
-            <core-item name="{{makeUid(parkName)}}" label="{{parkName}}"
+	  <template repeat="{{parkItem in region.parks}}">
+            <core-item name="{{parkItem.uid || makeUid(parkItem.name)}}"
+		       label="{{parkItem.name}}"
+		       disabled?="{{parkItem.disabled}}"
 		       horizontal center layout></core-item>
 	  </template>
 	</template>

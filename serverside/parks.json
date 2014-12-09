@@ -1,32 +1,60 @@
 [
- { "regionName": "California",
-   "parks": ["Disneyland CA", "Disney California Adventure",
-             "Magic Mountain", "Knotts Berry Farm", "Legoland CA",
-             "Universal Studios CA", "Great America"]
+  {"regionName": "California",
+   "parks": [
+     {"name": "Disneyland", "uid": "disneylandca"},
+     {"name": "Disney California Adventure"},
+     {"name": "Magic Mountain", "disabled": true},
+     {"name": "Knotts Berry Farm", "disabled": true},
+     {"name": "Legoland CA", "disabled": true},
+     {"name": "Universal Studios CA", "disabled": true},
+     {"name": "Great America"}
+     ]
+  },
+  {"regionName": "Florida",
+   "parks": [
+     {"name": "Magic Kingdom", "disabled": true},
+     {"name": "EPCOT", "disabled": true},
+     {"name": "Disney's Hollywood Studios", "disabled": true},
+     {"name": "Disney's Animal Kingdom", "disabled": true},
+     {"name": "Legoland FL", "disabled": true},
+     {"name": "Universal Studios FL", "disabled": true}
+     ]
+  },
+  {"regionName": "Japan",
+   "parks": [
+     {"name": "Disneyland JP", "disabled": true},
+     {"name": "Disneysea", "disabled": true}
+     ]
+  },
+  {"regionName": "France",
+   "parks": [
+     {"name": "Disneyland Paris", "disabled": true},
+     {"name": "Walt Disney Studios", "disabled": true}
+     ]
+  },
+  {"regionName": "Hong Kong",
+   "parks": [
+     {"name": "Disneyland Hong Kong", "disabled": true}
+     ]
  },
- { "regionName": "Florida",
-   "parks": ["Magic Kingdom", "EPCOT", "Disney's Hollywood Studios", "Disney's Animal Kingdom",
-    	     "Legoland FL", "Universal Studios FL"]
- },
- { "regionName": "Japan",
-   "parks": ["Disneyland JP", "Disneysea"]
- },
- { "regionName": "France",
-   "parks": ["Disneyland FR", "Walt Disney Studios"]
- },
- { "regionName": "Hong Kong",
-   "parks": ["Disneyland HK"]
- },
- { "regionName": "England",
-   "parks": ["Legoland Windsor"]
- },
- { "regionName": "Denmark",
-   "parks": ["Legoland Billund"]
- },
- { "regionName": "Germany",
-   "parks": ["Legoland Deutschland"]
- },
- { "regionName": "Malaysia",
-   "parks": ["Legoland Malaysia"]
- }
+  {"regionName": "England",
+   "parks": [
+     {"name": "Legoland Windsor", "disabled": true}
+     ]
+  },
+  {"regionName": "Denmark",
+   "parks": [
+     {"name": "Legoland Billund", "disabled": true}
+     ]
+  },
+  {"regionName": "Germany",
+   "parks": [
+     {"name": "Legoland Deutschland", "disabled": true}
+     ]
+  },
+  {"regionName": "Malaysia",
+   "parks": [
+     {"name": "Legoland Malaysia", "disabled": true}
+     ]
+  }
 ]
