@@ -15,6 +15,10 @@
 
   <link rel="import" href="/components/font-roboto/roboto.html">
   <link rel="import" href="/components/core-animated-pages/core-animated-pages.html">
+  <link rel="import" href="/components/flatiron-director/flatiron-director.html">
+
+  <link rel="import" href="/services/park-list-service.html">
+  <link rel="import" href="/services/park-service.html">
 
   <link rel="import" href="elements/main-page.html">
   <link rel="import" href="elements/ride-page.html">
@@ -26,14 +30,47 @@
 
 <body fullbleed unresolved>
 
-<!-- I would like to do a hero-transition between pages, but it does not seem to work. -->
-<core-animated-pages id="mainpages" selected="mainpage"  layout fit transitions="">
-  <main-page name="mainpage"></main-page>
-  <ride-page name="ridepage"></ride-page>
-</core-animated-pages>
+<polymer-element name="park-queues">
+  <template>
+    <flatiron-director route="{{route}}" autoHash></flatiron-director>
+
+    <park-list-service parks="{{parks}}"></park-list-service>
+    <park-service id="service" selected="{{selectedPark}}" park="{{park}}"></park-service>
+
+    <!-- I would like to do a hero-transition between pages, but it does not seem to work. -->
+    <core-animated-pages id="mainpages" selected="mainpage"  layout fit transitions="">
+      <main-page name="mainpage" id="mainpage" selectedPark="{{selectedPark}}"
+		 parks="{{parks}}" park="{{park}}"></main-page>
+      <ride-page name="ridepage" id="ridepage" park="{{park}}" date="{{date}}"></ride-page>
+    </core-animated-pages>
     
+  </template>
+  <script>
+    Polymer({
+      selectedPark: 'disneylandca',
+      parks: [ {regionName: "Loading...", parks: []}],
+      park: { name: 'Loading...'},
+      date: new Date(),
+
+      route: 'hello',
+      routeChanged: function() {
+        // TODO: URL layout should be:
+        // #  shows default park hours
+        // #:parkuid  shows that parks hours
+        // #:parkuid/rides  shows rides tab for that park
+        // #:parkuid/rides/:rideuid  shows info on that ride
+        // #:parkuid/rides/:rideuid/times  shows times for that ride
+        console.log('route is now ' + this.route)
+        var routeParts = this.route.split('/')
+        this.selectedPark = routeParts.shift() || 'disneylandca';
+      }
+    });
+  </script>
+</polymer-element>
+
+
+<park-queues></park-queues>
 
 
 </body>
-
 </html>

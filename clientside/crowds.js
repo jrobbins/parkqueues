@@ -174,7 +174,6 @@ var MAX_WAIT_TIMES = {
 
 /* Estimate the wait time for a ride... magic... */
 function waitTime(minuteCrowds, ticket) {
-    console.log('called waitTime(' + minuteCrowds + ', ' + ticket);
     return Math.floor(MAX_WAIT_TIMES[ticket] * minuteCrowds / 101) + 1;
 }
 

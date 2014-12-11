@@ -1,5 +1,6 @@
 {
   "name": "Disneyland",
+  "uid": "disneylandca",
   "description": "The Happiest Place on Earth",
   "openHhmm": 901,
   "closeHhmm": 2100,

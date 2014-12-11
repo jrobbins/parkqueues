@@ -71,11 +71,10 @@
     standbyTier: standbyTier,
 
     showDetail: function() {
-      var ridepage = document.querySelector('ride-page');
+      var parkqueues = document.querySelector('park-queues');
+      var ridepage = parkqueues.$.ridepage;
       ridepage.ride = this.ride;
-      ridepage.park = this.park;
-      ridepage.date = this.date;
-      var mainpages = document.getElementById('mainpages');
+      var mainpages = parkqueues.$.mainpages;
       mainpages.selected = 'ridepage';
     }
   });

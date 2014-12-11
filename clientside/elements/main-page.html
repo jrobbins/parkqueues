@@ -9,15 +9,13 @@
 <link rel="import" href="/components/core-pages/core-pages.html">
 <link rel="import" href="/components/paper-tabs/paper-tabs.html">
 
-<link rel="import" href="/services/park-list-service.html">
-<link rel="import" href="/services/park-service.html">
 <link rel="import" href="/elements/hours-tab.html">
 <link rel="import" href="/elements/ride-tab.html">
 <link rel="import" href="/elements/show-tab.html">
 <link rel="import" href="/elements/food-tab.html">
 
 
-<polymer-element name="main-page" attributes="park">
+<polymer-element name="main-page" attributes="parks selectedPark park date">
   <template>
     <style>
       core-menu div {
@@ -29,6 +27,9 @@
       core-menu core-item {
         margin-left: 10px;
         padding-left: 10px;
+      }
+      core-menu a {
+        color: inherit;
       }
       core-menu core-item[disabled] {
         color: hsla(0, 0%, 0%, .47);
@@ -44,9 +45,6 @@
       #content { background-color: #fff; }
     </style>
 
-  <park-list-service parks="{{parks}}"></park-list-service>
-  <park-service id="service" selected="{{selectedPark}}" park="{{park}}"></park-service>
-
   <core-scaffold id="scaffold" mode="scroll" responsiveWidth="2000px">
 
     <core-header-panel navigation flex>
@@ -55,10 +53,14 @@
 	<template repeat="{{region in parks}}">
   	  <div layout horizontal center flex>{{region.regionName}}</div>
 	  <template repeat="{{parkItem in region.parks}}">
-            <core-item name="{{parkItem.uid || makeUid(parkItem.name)}}"
+            <a href="#{{parkItem.uid || makeUid(parkItem.name)}}"
+	       name="{{parkItem.uid || makeUid(parkItem.name)}}">
+	      <core-item
 		       label="{{parkItem.name}}"
 		       disabled?="{{parkItem.disabled}}"
-		       horizontal center layout></core-item>
+		       horizontal center layout>
+  	      </core-item>
+	     </a>
 	  </template>
 	</template>
       </core-menu>

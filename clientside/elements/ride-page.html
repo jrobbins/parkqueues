@@ -12,7 +12,7 @@
 <link rel="import" href="/elements/ride-times-tab.html">
 
 
-<polymer-element name="ride-page" attributes="ride date">
+<polymer-element name="ride-page" attributes="park ride date">
   <template>
     <style>
       #content { background-color: #fff; }
@@ -62,7 +62,7 @@
     goBack: function(event, detail, sender) {
       event.preventDefault();
       console.log('prevedted default on ' + event);
-      var mainpages = document.getElementById('mainpages');
+      var mainpages = document.querySelector('park-queues').$.mainpages;
       mainpages.selected = 'mainpage';
     }
   });
