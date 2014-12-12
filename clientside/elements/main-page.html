@@ -34,7 +34,7 @@
       core-menu core-item[disabled] {
         color: hsla(0, 0%, 0%, .47);
       }
-      core-menu core-item.core-selected {
+      core-menu .core-selected core-item {
         background-color: hsla(0, 0%, 0%, .13);
       }
       #parkname {
@@ -54,7 +54,8 @@
   	  <div layout horizontal center flex>{{region.regionName}}</div>
 	  <template repeat="{{parkItem in region.parks}}">
             <a href="#{{parkItem.uid || makeUid(parkItem.name)}}"
-	       name="{{parkItem.uid || makeUid(parkItem.name)}}">
+	       name="{{parkItem.uid || makeUid(parkItem.name)}}"
+	       on-tap="{{closeDrawer}}">
 	      <core-item
 		       label="{{parkItem.name}}"
 		       disabled?="{{parkItem.disabled}}"
@@ -103,7 +104,7 @@
     park: { name: 'Loading...'},
     date: new Date(),
 
-    selectedParkChanged: function() {
+    closeDrawer: function() {
       this.$.scaffold.closeDrawer();
     },
     makeUid: makeUid
