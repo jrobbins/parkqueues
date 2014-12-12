@@ -1,5 +1,69 @@
-<link rel="import" href="/components/polymer/polymer.html">
-<link rel="import" href="food-card.html">
+<link rel="import" href="/components/core-icon-button/core-icon-button.html">
+
+<polymer-element name="food-card" attributes="name ticket land">
+  <template>
+    <style>
+    .land {
+      margin: 0;
+      padding: 3px;
+    }
+
+    .capsule {
+      display: block;
+      position: relative;
+      background-color: white;
+      padding: 0;
+      width: 95px;
+      font-weight: 300;
+      border-radius: 4px;
+      margin: 6px;
+    }
+
+    .standby {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    .name {
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    </style>
+
+
+    <div class="land land-{{land}}">
+    <div class="capsule standby-tier-{{standbyTier()}}" layout vertical center>
+      <div class="standby">{{standbyTime()}}</div>
+      <div class="name">{{name}}</div>
+    </div>
+    </div>
+
+  </template>
+  <script>
+  Polymer({
+    standbyTime: function() {
+      if (this.ticket === 'A') return 10;
+      if (this.ticket === 'B') return 20;
+      if (this.ticket === 'C') return 30;
+      if (this.ticket === 'D') return 40;
+      if (this.ticket === 'E') return 50;
+      if (this.ticket === 'EE') return 90;
+    },
+    standbyTier: function() {
+      var estMinutes = this.standbyTime();
+      if (estMinutes <= 10) return 10;
+      if (estMinutes <= 20) return 20;
+      if (estMinutes <= 30) return 30;
+      if (estMinutes <= 45) return 45;
+      if (estMinutes <= 60) return 60;
+      return 120;
+    }
+  });
+
+  </script>
+</polymer-element>
+
 
 <polymer-element name="food-tab" attributes="park date">
   <template>
