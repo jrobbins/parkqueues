@@ -1,5 +1,4 @@
-<link rel="import" href="/components/paper-button/paper-button.html">
-<link rel="import" href="/components/paper-slider/paper-slider.html">
+<link rel="import" href="/components/core-collapse/core-collapse.html">
 
 
 <polymer-element name="ride-info-tab" attributes="ride">
@@ -12,25 +11,34 @@
     #content {
       margin: 2px;
     }
+    #description {
+      padding: .5em;
+      white-space: pre-line;
+    }
+    th, td {
+      font-size: 90%;
+    }
     th {
       text-align: right;
+    }
+    ul {
+      margin: 0;
     }
     </style>
 
     <div id="content">
-      <section>
-	{{ride.description}}
-      </section>
-
       <template if="{{ride.facts.length}}">
         <section>
-	  <table cellpadding="4">
+	  <table cellpadding="3">
 	    <template repeat="{{fact in ride.facts}}">
     	      <tr><th>{{fact[0]}}</th><td>{{fact[1]}}</td></tr>
 	    </template>
 	  </table>
         </section>
       </template>
+
+      <section id="description"><template repeat="{{descPart in ride.description}}"
+         >{{descPart}}</template></section>
 
       <template if="{{ride.tips.length}}">
         <section>
@@ -43,13 +51,36 @@
         </section>
       </template>
       
+      <section id="sources">
+	<p class="unimportant" on-click="{{toggle}}">Sources</p>
+	<core-collapse id="collapse">
+	  <ul>
+   	    <template repeat="{{src in ride.sources}}">
+    	      <li><a href="{{src.href}}">{{src.label}}</a></li>
+	    </template>
+          </ul>
+	</core-collapse>
+      </section>
+      
     </div>
 
   </template>
 
   <script>
   Polymer({
-    ride: {}
+    ride: {},
+
+    rideChanged: function() {
+      if (this.ride.sources && this.ride.sources.length) {
+        this.$.sources.style.display = '';
+      } else {
+        this.$.sources.style.display = 'none';
+      }
+    },
+
+    toggle: function() {
+      this.$.collapse.toggle();
+    }
   });
   </script>
 </polymer-element>

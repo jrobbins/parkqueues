@@ -40,7 +40,7 @@ body /deep/ h3 {
   color: hsla(0, 0%, 0%, .59);
 }
 
-obody /deep/ .unimportant,
+body /deep/ .unimportant,
 body /deep/ #footer {
   color: hsla(0, 0%, 0%, .47);
 }

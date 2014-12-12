@@ -92,13 +92,16 @@ function Ride(data, park) {
     data = data || {};
     this.name = data.name || "unnamed ride";
     this.uid = data.uid || makeUid(this.name);
-    this.description = data.description || "missing description";
+    this.description = data.description || ["missing description"];
     this.ticket = data.ticket || "C";
     this.plus = data.plus || 0;
     this.fastpass = data.fastpass;
     this.singlerider = data.singlerider;
     this.facts = data.facts || [];
     this.tips = data.tips || [];
+    var sources = data.sources || [];
+    this.sources = sources.map(function(s) {
+        return { href: s, label: sourceLabel(s) }})
 
     if (data.sign_url === null)
       this.sign_url = null;
@@ -108,6 +111,19 @@ function Ride(data, park) {
     register_uid(park, this);
 }
 
+
+function sourceLabel(href) {
+    var parts = href.replace(/[/:.]/g, " ").split(" ");
+    var domain = parts.shift();
+    while (parts.length && parts[0] != "com" &&
+	   parts[0] != "net" && parts[0] != "org") {
+      domain = parts.shift();
+    }
+    if (domain == domain.toLowerCase()) {
+      domain = domain.charAt(0).toUpperCase() + domain.slice(1);
+    }
+    return domain || href;
+}
 
 function Show(data, park) {
     data = data || {};
