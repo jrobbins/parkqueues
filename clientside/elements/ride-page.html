@@ -11,15 +11,16 @@
 <link rel="import" href="/elements/ride-times-tab.html">
 
 
-<polymer-element name="ride-page" attributes="park ride date">
+<polymer-element name="ride-page" attributes="park ride date selectedTab">
   <template>
     <style>
       #content { background-color: #fff; }
     </style>
     <core-header-panel id="headerpanel" mode="waterfall-tall" layout fit>
-      <core-toolbar id="toolbar" hero-id="hero" on-click="{{goBack}}">
-        <core-icon-button id="menuButton" icon="arrow-back"></core-icon-button>
-	{{ride.name}}
+      <core-toolbar id="toolbar" hero-id="hero">
+	<a href="#{{park.uid}}/rides" style="color: white">
+          <core-icon-button id="menuButton" icon="arrow-back"></core-icon-button>
+	  {{ride.name}}</a>
       </core-toolbar>
 
       <div layout fit id="content">

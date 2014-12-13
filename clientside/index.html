@@ -39,10 +39,11 @@
     <park-service id="service" selected="{{selectedPark}}" park="{{park}}"></park-service>
 
     <!-- I would like to do a hero-transition between pages, but it does not seem to work. -->
-    <core-animated-pages id="mainpages" selected="mainpage"  layout fit transitions="">
+    <core-animated-pages id="mainpages" selected="{{selectedPage}}"  layout fit transitions="">
       <main-page name="mainpage" id="mainpage" selectedPark="{{selectedPark}}"
-		 parks="{{parks}}" park="{{park}}"></main-page>
-      <ride-page name="ridepage" id="ridepage" park="{{park}}" date="{{date}}"></ride-page>
+		 parks="{{parks}}" park="{{park}}" selectedTab="{{selectedMainTab}}"></main-page>
+      <ride-page name="ridepage" id="ridepage" park="{{park}}" date="{{date}}" ride="{{ride}}"
+		 selectedTab="{{selectedRideTab}}"></ride-page>
     </core-animated-pages>
     
   </template>
@@ -51,7 +52,11 @@
       selectedPark: 'disneylandca',
       parks: [ {regionName: "Loading...", parks: []}],
       park: { name: 'Loading...'},
+      ride: {},
       date: new Date(),
+      selectedPage: 'mainpage',
+      selectedMainTab: 'hours',
+      selectedRideTab: 'rideinfo',
 
       route: 'hello',
       routeChanged: function() {
@@ -61,9 +66,32 @@
         // #:parkuid/rides  shows rides tab for that park
         // #:parkuid/rides/:rideuid  shows info on that ride
         // #:parkuid/rides/:rideuid/times  shows times for that ride
-        console.log('route is now ' + this.route)
         var routeParts = this.route.split('/')
-        this.selectedPark = routeParts.shift() || 'disneylandca';
+        var destParkUid = routeParts.shift() || 'disneylandca';
+        var destMainTab = routeParts.shift() || 'hours';
+        var destRideUid = routeParts.shift();
+
+        if (destParkUid == this.selectedPark && this.park.loaded) {
+          console.log('same park, sync');
+          this.finishDirection(destMainTab, destRideUid);
+        } else {
+          console.log('new park, async');
+          var self = this;
+          this.$.service.then = function(unused_park) {
+            self.finishDirection(destMainTab, destRideUid);
+          };
+          this.selectedPark = destParkUid;
+        }
+      },
+
+      finishDirection: function(mainTab, rideUid) {
+          this.selectedMainTab = mainTab;
+          if (rideUid) {
+            this.ride = this.park.uids[rideUid];
+            this.selectedPage = 'ridepage';
+          } else {
+            this.selectedPage = 'mainpage';
+          }
       }
     });
   </script>

@@ -14,7 +14,7 @@
 <link rel="import" href="/elements/food-tab.html">
 
 
-<polymer-element name="main-page" attributes="parks selectedPark park date">
+<polymer-element name="main-page" attributes="parks selectedPark park date selectedTab">
   <template>
     <style>
       core-menu div {
@@ -48,11 +48,11 @@
 
     <core-header-panel navigation flex>
       <core-toolbar>Theme Park Queues</core-toolbar>
-      <core-menu theme="core-light-theme" selected="{{selectedPark}}">
+      <core-menu theme="core-light-theme" selected="{{selectedMenuItem}}">
 	<template repeat="{{region in parks}}">
   	  <div layout horizontal center flex>{{region.regionName}}</div>
 	  <template repeat="{{parkItem in region.parks}}">
-            <a href="#{{parkItem.uid || makeUid(parkItem.name)}}"
+            <a href="#{{parkItem.uid || makeUid(parkItem.name)}}/{{selectedTab}}"
 	       name="{{parkItem.uid || makeUid(parkItem.name)}}"
 	       on-tap="{{closeDrawer}}">
 	      <core-item
@@ -71,7 +71,7 @@
     <core-icon-button icon="refresh" tool></core-icon-button>
 
     <div layout fit id="content">
-        <paper-tabs id="tabs" selected="{{selectedTab}}" self-end>
+        <paper-tabs id="tabs" selected="{{selectedTab}}" on-core-activate="{{tabClicked}}" self-end>
           <paper-tab name="hours">Hours</paper-tab>
           <paper-tab name="rides">Rides</paper-tab>
           <paper-tab name="shows">Shows</paper-tab>
@@ -98,6 +98,7 @@
   <script>
   Polymer({
     selectedPark: 'disneylandca',
+    selectedMenuItem: 'disneylandca',
     selectedTab: 'hours',
     parks: [ {regionName: "Loading...", parks: []}],
     park: { name: 'Loading...'},
@@ -105,6 +106,15 @@
 
     closeDrawer: function() {
       this.$.scaffold.closeDrawer();
+    },
+    tabClicked: function() {
+      document.location.hash = this.park.uid + '/' + this.selectedTab;
+    },
+    // We need a one-way relationship from selectedPark to selectedMenuItem.
+    // If it were two-way, as soon as you select a new menu item, it would
+    // trigger loading the new park, which is a race condition with the hash parsing.
+    selectedParkChanged: function() {
+      this.selectedMenuItem = this.selectedPark;
     },
     makeUid: makeUid
   });

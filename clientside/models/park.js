@@ -18,6 +18,7 @@ function Park(data) {
     this.lands = lands.map(function(land) { return new Land(land, this_park); });
 
     this.schedule_parts = classify_shows_by_day_part(all_shows(this));
+    this.loaded = data.loaded || true;
 }
 
 function register_uid(park, item) {

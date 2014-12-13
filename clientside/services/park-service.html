@@ -18,14 +18,17 @@
   </template>
   <script>
   Polymer({
+    then: function() {},
+
     created: function() {
       this.park = new Park();
     },
     selectedChanged: function() {
-      this.park = new Park({name: 'Loading ' + this.selected + '...'});
+      this.park = new Park({name: 'Loading ' + this.selected + '...', loaded: false});
     },
     parkLoaded: function() {
       this.park = new Park(this.$.ajax.response);
+      this.then(this.park);
     },
     parkMissing: function() {
       var comingsoon = 'Coming soon: ' + this.selected;
