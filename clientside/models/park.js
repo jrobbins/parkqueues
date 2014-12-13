@@ -92,7 +92,8 @@ function Ride(data, park) {
     data = data || {};
     this.name = data.name || "unnamed ride";
     this.uid = data.uid || makeUid(this.name);
-    this.description = data.description || ["missing description"];
+    var descParts = data.description || ["missing description"];
+    this.description = descParts.join('');
     this.ticket = data.ticket || "C";
     this.plus = data.plus || 0;
     this.fastpass = data.fastpass;
@@ -101,7 +102,7 @@ function Ride(data, park) {
     this.tips = data.tips || [];
     var sources = data.sources || [];
     this.sources = sources.map(function(s) {
-        return { href: s, label: sourceLabel(s) }})
+        return { href: sourceHref(s), label: sourceLabel(s) }})
 
     if (data.sign_url === null)
       this.sign_url = null;
@@ -112,8 +113,8 @@ function Ride(data, park) {
 }
 
 
-function sourceLabel(href) {
-    var parts = href.replace(/[/:.]/g, " ").split(" ");
+function sourceLabel(source) {
+    var parts = source.replace(/[/:.]/g, " ").split(" ");
     var domain = parts.shift();
     while (parts.length && parts[0] != "com" &&
 	   parts[0] != "net" && parts[0] != "org") {
@@ -122,8 +123,18 @@ function sourceLabel(href) {
     if (domain == domain.toLowerCase()) {
       domain = domain.charAt(0).toUpperCase() + domain.slice(1);
     }
-    return domain || href;
+    if (parts && (parts[0] == "com" || parts[0] == "net" || parts[0] == "org")) {
+	return domain;
+    } else {
+	return source;
+    }
 }
+
+function sourceHref(source) {
+    if (source.indexOf("http") == 0) return source;
+    else return false;
+}
+
 
 function Show(data, park) {
     data = data || {};

@@ -37,8 +37,7 @@
         </section>
       </template>
 
-      <section id="description"><template repeat="{{descPart in ride.description}}"
-         >{{descPart}}</template></section>
+      <section id="description">{{ride.description}}</section>
 
       <template if="{{ride.tips.length}}">
         <section>
@@ -51,15 +50,16 @@
         </section>
       </template>
       
-      <section id="sources">
-	<p class="unimportant" on-click="{{toggle}}">Sources</p>
-	<core-collapse id="collapse">
-	  <ul>
-   	    <template repeat="{{src in ride.sources}}">
-    	      <li><a href="{{src.href}}">{{src.label}}</a></li>
+      <section id="sources" class="unimportant">
+          Sources:
+          <template repeat="{{src in ride.sources}}">	    
+	    <template if="{{src.href}}">
+	      <a href="{{src.href}}" class="comma-sep">{{src.label}}</a>
 	    </template>
-          </ul>
-	</core-collapse>
+	    <template if="{{!src.href}}">
+	      <a class="comma-sep">{{src.label}}</a>
+	    </template>
+	  </template>
       </section>
       
     </div>
@@ -76,10 +76,6 @@
       } else {
         this.$.sources.style.display = 'none';
       }
-    },
-
-    toggle: function() {
-      this.$.collapse.toggle();
     }
   });
   </script>

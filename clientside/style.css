@@ -34,6 +34,18 @@ body /deep/ paper-tabs {
   margin: 10px;
 }
 
+body /deep/ a {
+  text-decoration: none;
+}
+
+body /deep/ .unimportant a[href],
+body /deep/ .unimportant a:visited,
+body /deep/ a.unimportant[href],
+body /deep/ a.unimportant:visited
+{
+  color: rgba(82, 110, 156, .80);
+}
+
 body /deep/ h1,
 body /deep/ h2,
 body /deep/ h3 {
@@ -45,6 +57,14 @@ body /deep/ #footer {
   color: hsla(0, 0%, 0%, .47);
 }
 
+body /deep/ .comma-sep::after {
+  content: ", ";
+}
+
+body /deep/ .comma-sep:last-of-type::after {
+  content: "";
+}
+
 body /deep/ section ~ section {
   border-top: 1px solid #ddd;
 }
@@ -52,6 +72,10 @@ body /deep/ section ~ section {
 body /deep/ section {
   padding: .5em;
   background-color: white;
+}
+
+body /deep/ section#sources {
+  padding-top: .3em;
 }
 
 body /deep/ paper-shadow.card {
