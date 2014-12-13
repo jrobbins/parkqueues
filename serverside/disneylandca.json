@@ -10,9 +10,9 @@
   "lands": [
     { "land_name": "Toontown",
       "rides": [
-        { "name" : "Mickey's House", "ticket" : "C" },
-        { "name" : "Minnie's House", "ticket" : "C" },
-        { "name" : "Gadget's Go Coaster", "ticket" : "C",
+        { "name": "Mickey's House", "ticket": "C" },
+        { "name": "Minnie's House", "ticket": "C" },
+        { "name": "Gadget's Go Coaster", "ticket": "C",
 	  "description": [
 	    "This is a is a junior roller coaster based on the work of the ",
 	    "character Gadget Hackwrench from Chip 'n Dale Rescue Rangers.\n\n",
@@ -27,7 +27,7 @@
 	  "tips": [],
 	  "sources": ["http://en.wikipedia.org/wiki/Gadget%27s_Go_Coaster"]
 	  },
-        { "name" : "Car Toon Spin", "ticket" : "D",
+        { "name": "Car Toon Spin", "ticket": "D",
 	  "description": [
 	    "This is a dark ride inspired by Who Framed Roger Rabbit.\n\n",
 	    "Each cab seats two people, and can spin around, much like ",
@@ -57,7 +57,7 @@
 
     { "land_name": "Tomorrowland",
       "rides": [
-        { "name" : "Buzz Lightyear Astro Blasters", "ticket" : "B",
+        { "name": "Buzz Lightyear Astro Blasters", "ticket": "B",
 	  "description": [
 	    "This is a combination of a shooting gallery and a dark ride ",
 	    "based on Toy Story 2.\n\n",
@@ -71,11 +71,11 @@
 	    "If the ride stops, keep shooting.",
 	    "Round targets are 100 points, square are 1,000 points, diamond are 5,000 points, and triangle are 10,000 points.",
 	    "Ignore round targets.",
-	    "Look for hidden targets in dark areas and on the figures"
+	    "Look for hidden targets in dark areas and on the figures."
 	    ],
 	  "sources": ["http://en.wikipedia.org/wiki/Buzz_Lightyear_attractions"]
 	},
-        { "name" : "Astro Orbiter", "ticket" : "B",
+        { "name": "Astro Orbiter", "ticket": "B",
           "description": [
 	    "This is a is a rocket-spinner attraction.",
 	    "\n\n",
@@ -86,7 +86,7 @@
 	  ],
 	  "sources": ["http://en.wikipedia.org/wiki/Astro_Orbiter"]
         },
-        { "name" : "Finding Nemo Submarines", "ticket" : "C",
+        { "name": "Finding Nemo Submarines", "ticket": "C",
           "description": [
 	    "This is a submarine ride based on Finding Nemo.\n\n",
 	    "Guests see a giant sea bass, a seaweed forest, the ruins of an ancient ",
@@ -98,7 +98,7 @@
 	  ],
 	  "sources": ["http://en.wikipedia.org/wiki/Finding_Nemo_Submarine_Voyage"]
         },
-        { "name" : "Autopia", "ticket" : "D",
+        { "name": "Autopia", "ticket": "D",
           "description": [
 	    "In this attaction, patrons steer specially designed cars through an ",
 	    "enclosed track.\n\n",
@@ -110,7 +110,7 @@
 	  ],
 	  "sources": ["http://en.wikipedia.org/wiki/Autopia"]
         },
-        { "name" : "Star Tours", "ticket" : "E",
+        { "name": "Star Tours", "ticket": "E",
 	  "fastpass": true,
           "description": [
 	    "This is a 3D motion simulator attraction based on the Star Wars films.",
@@ -125,7 +125,7 @@
 	  ],
 	  "sources": ["http://en.wikipedia.org/wiki/Star_Tours%E2%80%94The_Adventures_Continue"]
         },
-        { "name" : "Space Mountain", "ticket" : "F",
+        { "name": "Space Mountain", "ticket": "F",
 	  "fastpass": true, "singlerider": true,
           "description": [
 	    "Space Mountain is a space-themed indoor steel roller coaster.\n\n",
@@ -147,28 +147,150 @@
   
     { "land_name": "Fantasyland",
       "rides": [
-        { "name" : "King Arthur Carrousel", "ticket" : "B" },
-        { "name" : "Storybook Canal Boats", "ticket" : "B" },
-        { "name" : "Casey Jr Train", "ticket" : "B" },
-        { "name" : "Mr. Toad's Wild Ride", "ticket" : "C" },
-        { "name" : "Mad Tea Party", "ticket" : "C" },
-        { "name" : "Dumbo", "ticket" : "C" },
-        { "name" : "Snow White's Scary Adv.", "ticket" : "C" },
-        { "name" : "Pinocchio's Daring Journey", "ticket" : "C" },
-        { "name" : "Alice in Wonderland", "ticket" : "C" },
-        { "name" : "it's a small world", "ticket" : "D" },
-        { "name" : "Peter Pan's Flight", "ticket" : "D", "plus": 15 },
-        { "name" : "Matterhorn Bobsleds", "ticket" : "E",
-	  "singlerider": true }
+        { "name": "King Arthur Carrousel", "ticket": "B",
+          "description": [
+	    "King Arthur Carrousel is the carousel in Fantasyland at ",
+	    "Disneyland which was featured in the telecast of Disneyland's ",
+	    "1955 opening day.\n\n",
+	    "It has 68 white horses arranged in four courses."
+	  ],
+	  "facts": [
+	    ["Duration", "2:18"]
+	  ],
+	  "tips": [
+	    "The carousel was originally built in 1875 and has been repeatedly modified.",
+	    "All the horses have been white since 1975.",
+	    "Each horse has a name; a complete list is available at City Hall.",
+	    "A Wurlitzer #157 Band Organ face decorates the carousel, but does not operate."
+	    ],
+	  "sources": ["http://en.wikipedia.org/wiki/King_Arthur_Carrousel"]
+        },
+        { "name": "Storybook Canal Boats", "ticket": "B",
+          "description": [
+	    "Passengers embark on a leisurely-paced outdoor boat ride through ",
+	    "a winding canal featuring settings from Disney animated films ",
+	    "recreated in miniature."
+	  ],
+	  "facts": [
+	    ["Duration", "6:00"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Storybook_Land_Canal_Boats"]
+        },
+        { "name": "Casey Jr Circus Train", "ticket": "B",
+          "description": [
+	    "Based on the train of the same name from the 1941 film Dumbo, ",
+	    "it gives passengers a tour of many miniature versions of classic ",
+	    "Disney animated film scenes."
+	  ],
+	  "facts": [
+	    ["Duration", "3:40"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Casey_Jr._Circus_Train"]
+        },
+        { "name": "Mr. Toad's Wild Ride", "ticket": "C",
+          "description": [
+	    "The dark ride's story is based on Disney's adaptation of The Wind ",
+	    "in the Willows.\n\n",
+	    "Each car seats two people."
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Mr._Toad%27s_Wild_Ride"]
+        },
+        { "name": "Mad Tea Party", "ticket": "C",
+          "description": [
+	    "This is a spinning tea cup ride inspired by the Unbirthday Party ",
+	    "scene in Walt Disney's Alice In Wonderland.\n\n",
+	    "The ride has three small turntables, which rotate clockwise, each ",
+	    "holding six teacups, within one large turntable, rotating ",
+	    "counter-clockwise."
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Mad_Tea_Party"]
+        },
+        { "name": "Dumbo", "ticket": "C",
+          "description": [
+	    "This is an aerial carousel-style ride based on the movie Dumbo.\n\n",
+	    "The passengers ride in one of 16 Dumbo cars and can maneuver them up ",
+	    "and down with a joystick that operates a hydraulic ram. The ride itself ",
+	    "rotates counterclockwise at a constant rate."
+	  ],
+	  "facts": [
+	    ["Duration", "2:45"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Dumbo_the_Flying_Elephant"]
+        },
+        { "name": "Snow White's Scary Adv.", "ticket": "C",
+          "description": [
+	    "This is a dark ride based on the Snow White film.\n\n",
+	    "The ride vehicles seat 4-6 people and resemble the beds of the Seven ",
+	    "Dwarfs and feature the names of each dwarf, much like their beds in ",
+	    "the film."
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Snow_White%27s_Scary_Adventures"]
+        },
+        { "name": "Pinocchio's Daring Journey", "ticket": "C",
+          "description": [
+	    "This is a dark ride based on the classic tale."
+	  ],
+	  "facts": [
+	    ["Duration", "3:00"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Pinocchio%27s_Daring_Journey"]
+        },
+        { "name": "Alice in Wonderland", "ticket": "C",
+          "description": [
+	    "This is a dark ride based on the film Alice in Wonderland.\n\n",
+	    "Guests ride in caterpillar vehicles down the rabbit hole. ",
+	    "In 2014 many scenes were updated with digitally projected images ",
+	    "and effects."
+	  ],
+	  "facts": [
+	    ["Duration", "3:38"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Alice_in_Wonderland_(Disneyland_attraction)"]
+        },
+        { "name": "it's a small world", "ticket": "D",
+          "description": [
+	    "This boat ride features over 300 brightly costumed audio-animatronic ",
+	    "dolls in the style of children of the world, frolicking in a spirit of ",
+	    "international unity and singing the attraction's title song, which has a ",
+	    "theme of global peace.\n\n"
+	  ],
+	  "facts": [
+	    ["Duration", "12-15 minutes"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/It%27s_a_Small_World"]
+        },
+        { "name": "Peter Pan's Flight", "ticket": "D", "plus": 15,
+          "description": [
+	    "This is a suspended dark ride based on Walt Disney's Peter Pan.\n\n",
+	    "Guests fly over the rooftops of London, and view audio-animatronic ",
+	    "versions of the characters from the story."
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Peter_Pan%27s_Flight"]
+        },
+        { "name": "Matterhorn Bobsleds", "ticket": "E",
+	  "singlerider": true,
+          "description": [
+	    "The Matterhorn Bobsleds is composed of two intertwining steel roller ",
+	    "coasters.  It is modeled after the Matterhorn, a mountain in the ",
+	    "Swiss Alps.\n\n",
+	    "It is the first tubular steel continuous track roller coaster ever constructed."
+	  ],
+	  "facts": [
+	    ["Height Req", "42\""],
+	    ["Duration", "2:07 and 2:26"],
+	    ["Speed", "27 mph"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Matterhorn_Bobsleds"]
+        }
       ]
     },
 
     { "land_name": "Adventureland & Frontierland",
       "rides": [
-        { "name" : "Jungle Cruise", "ticket" : "B" },
-        { "name" : "Indiana Jones", "ticket" : "E",
+        { "name": "Jungle Cruise", "ticket": "B" },
+        { "name": "Indiana Jones", "ticket": "E",
 	  "fastpass": true },
-        { "name" : "Big Thunder Mountain", "ticket" : "E",
+        { "name": "Big Thunder Mountain", "ticket": "E",
 	  "fastpass": true }
       ],
       "shows": [
@@ -178,12 +300,12 @@
 
     { "land_name": "New Orleans Square & Critter Country",
       "rides": [
-        { "name" : "Winnie the Pooh", "ticket" : "B" },
-        { "name" : "Canoes", "ticket" : "B" },
-        { "name" : "Pirates of the Caribbean", "ticket" : "B",
+        { "name": "Winnie the Pooh", "ticket": "B" },
+        { "name": "Canoes", "ticket": "B" },
+        { "name": "Pirates of the Caribbean", "ticket": "B",
 	  "tips": ["This ride's line moves fast"] },
-        { "name" : "Haunted Mansion", "ticket" : "C" },
-        { "name" : "Splash Mountain", "ticket" : "E",
+        { "name": "Haunted Mansion", "ticket": "C" },
+        { "name": "Splash Mountain", "ticket": "E",
 	  "fastpass": true }
       ],
       "shows": [
