@@ -287,11 +287,56 @@
 
     { "land_name": "Adventureland & Frontierland",
       "rides": [
-        { "name": "Jungle Cruise", "ticket": "B" },
+        { "name": "Jungle Cruise", "ticket": "B",
+          "description": [
+	    "The attraction simulates a riverboat cruise down several major ",
+	    "rivers of Asia, Africa and South America.\n\n",
+	    "Park guests board ",
+	    "replica tramp steamers from a 1930s British explorers' lodge ",
+	    "and are taken on a voyage past many different Audio-Animatronic ",
+	    "jungle animals. The tour is led by a live Disney cast member ",
+	    "delivering a humorous narration."
+	  ],
+	  "facts": [
+	    ["Duration", "7:00"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Jungle_Cruise"]
+        },
         { "name": "Indiana Jones", "ticket": "E",
-	  "fastpass": true },
+	  "fastpass": true,
+          "description": [
+	    "This is an enhanced motion vehicle dark ride attraction based ",
+	    "on the Indiana Jones film series. Guests accompany intrepid ",
+	    "archaeologist Dr. Indiana Jones on a turbulent quest, aboard ",
+	    "military troop transport vehicles, through a dangerous lost ",
+	    "temple guarded by a supernatural power."
+	  ],
+	  "facts": [
+	    ["Height Req", "46\""],
+	    ["Duration", "3:25"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Indiana_Jones_Adventure"]
+        },
         { "name": "Big Thunder Mountain", "ticket": "E",
-	  "fastpass": true }
+	  "fastpass": true,
+          "description": [
+	    "This is an indoor/outdoor mine train roller coaster.  Gold ",
+	    "was discovered near the town of Rainbow Ridge, and an ",
+	    "extensive line of mine trains was set up to transport the ",
+	    "ore.  Eventually, the town was abandoned.  Some time later, ",
+	    "the locomotives were found to be racing around the mountain on ",
+	    "their own, without engineers or a crew\n\n",
+	    "In 2014, the ride was refurbished with a new track, trains, ",
+	    "scenery, and new ending featuring special effects such as ",
+	    "projection mapping and smoke effects."
+	  ],
+	  "facts": [
+	    ["Height Req", "40\""],
+	    ["Duration", "3:00"],
+	    ["Speed", "28 mph (45 km/h)"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Big_Thunder_Mountain_Railroad"]
+        }
       ],
       "shows": [
 	 { "name": "Flag Retreat", "times": [1645] }
@@ -300,13 +345,76 @@
 
     { "land_name": "New Orleans Square & Critter Country",
       "rides": [
-        { "name": "Winnie the Pooh", "ticket": "B" },
-        { "name": "Canoes", "ticket": "B" },
+        { "name": "Winnie the Pooh", "ticket": "B",
+          "description": [
+	    "The Many Adventures of Winnie the Pooh is a dark ride based upon ",
+	    "the film The Many Adventures of Winnie the Pooh, itself based on ",
+	    "the Winnie-the-Pooh books by A. A. Milne.\n\n",
+	    "Guests ride in a honeypot through a rain storm, dream sequence, ",
+	    "Pooh's birthday party."
+	  ],
+	  "facts": [
+	    ["Duration", "3:!5"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/The_Many_Adventures_of_Winnie_the_Pooh_(attraction)"]
+        },
+        { "name": "Canoes", "ticket": "B",
+          "description": [
+	    "Davy Crockett Explorer Canoes is a free-floating canoe experience.\n\n",
+	    "Up to twenty visitors paddle a canoe around the Rivers of America, ",
+	    "accompanied by two guides. This is the only Disneyland attraction that ",
+	    "is powered by park visitors."
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Davy_Crockett_Explorer_Canoes"]
+        },
         { "name": "Pirates of the Caribbean", "ticket": "B",
-	  "tips": ["This ride's line moves fast"] },
-        { "name": "Haunted Mansion", "ticket": "C" },
+	  "tips": ["This ride's line moves fast"],
+          "description": [
+	    "Pirates of the Caribbean is a dark boat ride which tells the ",
+	    "story of a band of pirates including their troubles and their ",
+	    "exploits.  The films are based on the ride, and the ride was updated ",
+	    "in 2006 to include the Jack Sparrow character.\n\n",
+	    "Guests may get slightly wet.  There are two drops."
+	  ],
+	  "facts": [
+	    ["Duration", "15:30"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Pirates_of_the_Caribbean_(attraction)"]
+        },
+        { "name": "Haunted Mansion", "ticket": "C",
+          "description": [
+	    "The Haunted Mansion is a haunted house dark ride.  The Haunted ",
+	    "Mansion features a ride-through tour in Omnimover vehicles called ",
+	    "\"Doom Buggies,\" preceded by a walk-through show in the queue. ",
+	    "The attraction utilizes a range of technology, from centuries-old ",
+	    "theatrical effects to modern special effects and spectral ",
+	    "Audio-Animatronics."
+	  ],
+	  "facts": [
+	    ["Duration", "5:50 to 8:20"]
+	  ],
+	  "tips": [
+	    "At Christmastime, the ride has a seasonal overlay featuring characters from the 1993 film The Nightmare Before Christmas."
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Haunted_Mansion"]
+        },
         { "name": "Splash Mountain", "ticket": "E",
-	  "fastpass": true }
+	  "fastpass": true,
+          "description": [
+	    "Splash Mountain is a log flume-style dark ride based on the ",
+	    "characters, stories, and songs from the 1946 Disney film Song ",
+	    "of the South.\n\n",
+	    "The ride begins with a peaceful outdoor float-through that leads ",
+	    "to indoor dark ride segments, with a climactic steep drop into a ",
+	    "\"briar patch\" followed by an indoor finale. The drop is 53 feet."
+	  ],
+	  "facts": [
+	    ["Height Req", "40\""],
+	    ["Duration", "9:18"],
+	    ["Speed", "40 mph drop"]
+	  ],
+	  "sources": ["http://en.wikipedia.org/wiki/Splash_Mountain"]
+        }
       ],
       "shows": [
 	 { "name": "Soundsational Parade", "times": [1900] },
