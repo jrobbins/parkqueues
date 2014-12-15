@@ -98,3 +98,7 @@ body /deep/ div.card h3 {
     width: 480px;
   }
 }
+
+html /deep/ paper-dialog::shadow #scroller {
+  padding: 4px;
+}

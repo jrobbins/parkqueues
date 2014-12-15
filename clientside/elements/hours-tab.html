@@ -18,7 +18,7 @@
     <section>
       <h3>Schedule and conditions</h3>
       <table cellspacing="6">
-        <tr><th>Date</th><td>{{date_string()}}</td></tr>
+        <tr><th>Date</th><td>{{date_string(date)}}</td></tr>
         <tr>
 	  <th>Park Hours</th>
 	  <td>{{hhmmToTimeStr(park.openHhmm)}} to {{hhmmToTimeStr(park.closeHhmm)}}</td>
@@ -64,8 +64,8 @@
       date: new Date(),
     },
 
-    date_string: function() {
-      return this.date.toDateString();
+    date_string: function(date) {
+      return date.toDateString();
     },
   
     hhmmToTimeStr: hhmmToTimeStr,

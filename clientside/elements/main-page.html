@@ -6,7 +6,9 @@
 <link rel="import" href="/components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="/components/core-animated-pages/transitions/slide-from-right.html">
 <link rel="import" href="/components/core-pages/core-pages.html">
+<link rel="import" href="/components/paper-dialog/paper-dialog.html">
 <link rel="import" href="/components/paper-tabs/paper-tabs.html">
+<link rel="import" href="/components/paper-calendar/paper-calendar.html">
 
 <link rel="import" href="/elements/hours-tab.html">
 <link rel="import" href="/elements/ride-tab.html">
@@ -42,6 +44,13 @@
         white-space: nowrap;
       }
       #content { background-color: #fff; }
+
+      #calendar {
+        margin: 4px;
+      }
+      html /deep/ paper-dialog::shadow #scroller {
+        padding: 4px;
+      }
     </style>
 
   <core-scaffold id="scaffold" mode="scroll" responsiveWidth="2000px">
@@ -67,8 +76,8 @@
     </core-header-panel>
     
     <div tool flex id="parkname">{{park.name}}</div>
-    <core-icon-button icon="today" tool></core-icon-button>
-    <core-icon-button icon="refresh" tool></core-icon-button>
+    <core-icon-button icon="today" on-tap="{{openCalendarDialog}}" tool>
+    </core-icon-button>
 
     <div layout fit id="content">
         <paper-tabs id="tabs" selected="{{selectedTab}}" on-core-activate="{{tabClicked}}" self-end>
@@ -89,6 +98,10 @@
 	  <food-tab name="food" park="{{park}}"></food-tab>
 	</core-animated-pages>
 
+	<paper-dialog id="calendarDialog" transition="core-transition-center">
+	  <paper-calendar id="calendar" on-core-select="{{closeCalendarDialog}}"></paper-calendar>
+	</paper-dialog>
+	
     </div>
 
   </core-scaffold>
@@ -115,6 +128,19 @@
     // trigger loading the new park, which is a race condition with the hash parsing.
     selectedParkChanged: function() {
       this.selectedMenuItem = this.selectedPark;
+    },
+
+    // Note that we can not simply bind date to an attribute of the calendar
+    // because it modifies its own date object as the user pages through the
+    // months, regardless of whether the user actually choose a date or not.
+    openCalendarDialog: function() {
+     this.$.calendarDialog.date = this.date;
+     this.$.calendarDialog.open();
+    },
+    closeCalendarDialog: function() {
+     this.date = this.$.calendar.date;
+     console.log('set to ' + this.date);
+     this.$.calendarDialog.close();
     },
     makeUid: makeUid
   });

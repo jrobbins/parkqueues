@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+#calendar {
+  width: 280px;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 20px;
+  padding: 6px;
+  text-align: center;
+  font-weight: 200;
+}
+.calendar-head {
+  background: #4285f4;
+  color: #fff;
+}
+#content {
+  margin-bottom: 10px;
+}
+.header {
+  text-align: center;
+}
+.days {
+  width: 13%;
+}
+.days.fade {
+  color: #c9c9c9;
+}
+
+.days.core-selected {
+  background-color: #c9c9c9;
+}
+
+paper-button {
+  min-width: initial;
+  margin: 0;
+  }
+
+paper-button.colored {
+  color: #4285f4;
+  fill: #4285f4;
+}
+
+paper-button[simpleButton].colored {
+  background: #4285f4;
+  color: #fff;
+}
