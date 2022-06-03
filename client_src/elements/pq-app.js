@@ -33,6 +33,8 @@ class PQApp extends LitElement {
     this.world = new models.World({});
     this.park = new models.Park({});
     this.ride = null;
+
+    this.parkPageScrollPositon = 0;
   }
 
   setUpRoutes() {
@@ -40,12 +42,6 @@ class PQApp extends LitElement {
 
     // SPA routing rules.  Note that rules are considered in order.
     // And :var can match any string (including a slash) if there is no slash after it.
-    page('/debug/', this.showSplashOrRedirect.bind(this));
-    page('/debug', '/debug/');
-    page('/debug/:parkUid/', this.showParkPage.bind(this));
-    page('/debug/:parkUid', (ctx) => {page.redirect(ctx.path + '/')});
-    page('/debug/:parkUid/:rideId', this.showRidePage.bind(this));
-
     page('/', this.showSplashOrRedirect.bind(this));
     page('/:parkUid/', this.showParkPage.bind(this));
     page('/:parkUid', (ctx) => {page.redirect(ctx.path + '/')});
@@ -90,10 +86,22 @@ class PQApp extends LitElement {
   }
 
   showRidePage(ctx, next) {
+    this.parkPageScrollPositon = window.scrollY;
     this.setParkAndRide(ctx.params.parkUid, ctx.params.rideId);
     this.spaPage = 'pq-ride-page';
   }
 
+
+  updated(changedProperties) {
+    if (changedProperties.has('spaPage')) {
+      if (this.spaPage == 'pq-park-page') {
+	// Scroll after the new page has rendered.
+	window.setTimeout(() => { window.scrollTo(0, this.parkPageScrollPositon)}, 0);
+      } else {
+	window.scrollTo(0, 0);
+      }
+    }
+  }
   
   static get styles() {
     return [

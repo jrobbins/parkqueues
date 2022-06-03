@@ -30,7 +30,7 @@ class PQParkPage extends LitElement {
        }
        sl-button::part(base) {
          width: 110px;
-         height: 70px;
+         height: 90px;
          padding: 8px;
          text-align: center;
          line-height: 1.3;

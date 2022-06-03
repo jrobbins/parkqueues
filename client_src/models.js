@@ -48,6 +48,19 @@ export class Park {
     this.name = data.name || "unnamed park";
     this.uid = data.uid || makeUid(this.name);
     this.description = data.description || "missing description";
+    if (data.sign === null || data.name === undefined) {
+      /* We can explicitly null it out to avoid a 404. */
+      this.signUrl = null;
+    } else {
+      /* Otherwise, assume every park has a sign. */
+      this.signUrl = ASSET_BASE + this.uid + "/park_sign.jpg";
+      this.signUrl05 = ASSET_BASE + this.uid + "/park_sign@05x.jpg";
+      if (data.sign) {
+        this.signCredit = sourceLabel(data.sign);
+        this.signCreditUrl = data.sign;
+      }
+    }
+    
     const lands = data.lands || [];
     this.lands = lands.map((land) => new Land(land, this));
   
@@ -96,13 +109,13 @@ export class Ride {
     this.sources = sources.map(function(s) {
       return { href: sourceHref(s), label: sourceLabel(s) }})
 
-    if (data.sign === null) {
+    if (data.sign === null || data.name === undefined) {
       /* We can explicitly null it out to avoid a 404. */
       this.signUrl = null;
     } else {
       /* Otherwise, assume every ride has a sign. */
-      this.signUrl = ASSET_BASE + park.uid + "/" + this.uid + "/sign.jpg";
-      this.signUrl05 = ASSET_BASE + park.uid + "/" + this.uid + "/sign@05x.jpg";
+      this.signUrl = ASSET_BASE + park.uid + "/" + this.id + "/sign.jpg";
+      this.signUrl05 = ASSET_BASE + park.uid + "/" + this.id + "/sign@05x.jpg";
       if (data.sign) {
         this.signCredit = sourceLabel(data.sign);
         this.signCreditUrl = data.sign;

@@ -391,6 +391,7 @@ SOARIN = {
 
 PARK = {
   "name": "Disney California Adventure",
+  "sign": None,
   "description": """
     DCA is themed after the history and culture of the state of California.
     The park opened in 2001 and was significantly expanded in 2012.""",

@@ -107,7 +107,7 @@ CAR_TOON_SPIN = {
 
 
 BUZZ_LIGHTYEAR = {
-  "name": "Buzz Lightyear ...",
+  "name": "Buzz Lightyear Astro Blasters",
   "ticket": "B",
   "description": """
     This is a combination of a shooting gallery and a dark ride

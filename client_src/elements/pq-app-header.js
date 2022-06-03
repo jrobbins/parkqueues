@@ -18,6 +18,32 @@ class PQAppHeader extends LitElement {
     this.ride = null;
   }
 
+  showSign(header, parkOrRide) {
+    /* Force a low-res version of the sign to be loaded before high-res. */
+    var lowres = new Image();
+    lowres.src = parkOrRide.signUrl05;
+    header.style.backgroundImage = (
+      'linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)),' +
+        'url(' + parkOrRide.signUrl + '),' +
+        'url(' + parkOrRide.signUrl05 + ')');
+    header.style.backgroundSize = 'cover';
+    header.style.backgroundPosition = 'center';
+    header.style.paddingTop = '80px';
+  }
+
+  updated() {
+    const header = this.shadowRoot.querySelector('header');
+    if (!header) return;
+    if (this.ride && this.ride.signUrl) {
+      this.showSign(header, this.ride);
+    } else if (this.park && this.park.signUrl) {
+      this.showSign(header, this.park);
+    } else {
+      header.style.backgroundImage = '';
+      header.style.paddingTop = '';
+    }
+  }
+
   static get styles() {
     return [
       ...SHARED_STYLES,
@@ -26,6 +52,7 @@ class PQAppHeader extends LitElement {
         background: var(--sl-color-primary-800);
         color: white;
         display: flex;
+        transition: padding .2s;
       }
       .nav-button {
         font-size: 1.5rem;
@@ -66,7 +93,6 @@ class PQAppHeader extends LitElement {
   }
 
   toggleDrawer() {
-    console.log('toggle');
     const drawer = this.shadowRoot.querySelector('sl-drawer');
     drawer.open = !drawer.open;
   }
@@ -80,7 +106,7 @@ class PQAppHeader extends LitElement {
       return html`
         <li class="park-item"
             ?active=${parkEntry.uid == this.park.uid}>
-          <a href="/${parkEntry.uid}"}>
+          <a href="/${parkEntry.uid}"} @click=${(e) => this.toggleDrawer()}>
             ${parkEntry.name}
           </a>
         </li>
