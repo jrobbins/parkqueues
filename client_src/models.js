@@ -13,6 +13,7 @@ const ASSET_BASE = "/static/images/";
 
 // Make a new ID based on the object's name.
 function makeUid(name) {
+  if (name === undefined) return undefined;
   return name.toLowerCase().replace(/[^a-z]/g, "");
 }
 
@@ -33,7 +34,7 @@ class RegionEntry {
 
 class ParkEntry {
   constructor(data) {
-    this.name = data.name || "unnamed park";
+    this.name = data.name;
     this.uid = data.uid || makeUid(this.name);
     this.disabled = data.disabled;
   }
@@ -45,7 +46,7 @@ class ParkEntry {
 // This represents an entire park.
 export class Park {
   constructor(data) {
-    this.name = data.name || "unnamed park";
+    this.name = data.name;
     this.uid = data.uid || makeUid(this.name);
     this.description = data.description || "missing description";
     if (data.sign === null || data.name === undefined) {

@@ -3,11 +3,11 @@ import {css} from 'lit';
 export const SHARED_STYLES = [
     css`
       * { 
-        font-family: "Roboto", sans-serif;
+        font-family: "Poppins", sans-serif;
       }
 
-      h1, h2, h3 {
-        font-weight: 500;
+      * {
+        font-weight: 300;
       }
 
       sl-details::part(base) {

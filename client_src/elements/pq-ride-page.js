@@ -50,11 +50,9 @@ class PQRidePage extends LitElement {
     }
     
     return html`
-      <ul>
-        ${this.ride.queueSteps.map((step) => html`
-          <pq-queue-step .step=${step}></pq-queue-step>
-        `)}
-      </ul>
+      ${this.ride.queueSteps.map((step) => html`
+        <pq-queue-step .step=${step}></pq-queue-step>
+      `)}
 
       <div style="padding: .5em 0" class="unimportant">
         Remaining queue time estimates are based on photo timestamps on a 
@@ -74,11 +72,9 @@ class PQRidePage extends LitElement {
     }
     
     return html`
-      <ul>
-        ${this.ride.gallery.map((photo) => html`
-           <pq-photo-block .photo=${photo}></pq-photo-block>
-        `)}
-      </ul>
+      ${this.ride.gallery.map((photo) => html`
+         <pq-photo-block .photo=${photo}></pq-photo-block>
+      `)}
 
       <div style="padding: .5em 0" class="unimportant">
         All images are from sources that permit reuse.

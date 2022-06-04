@@ -14,7 +14,7 @@ class PQAppHeader extends LitElement {
   constructor() {
     super();
     this.world = new models.World({});
-    this.park = {};
+    this.park = new models.Park({});
     this.ride = null;
   }
 
@@ -23,7 +23,7 @@ class PQAppHeader extends LitElement {
     var lowres = new Image();
     lowres.src = parkOrRide.signUrl05;
     header.style.backgroundImage = (
-      'linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)),' +
+      'linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),' +
         'url(' + parkOrRide.signUrl + '),' +
         'url(' + parkOrRide.signUrl05 + ')');
     header.style.backgroundSize = 'cover';
@@ -141,7 +141,7 @@ class PQAppHeader extends LitElement {
     return html`
       <header>
         ${this.ride ? backButton : mainMenuButton}
-        <h1>${this.ride ? this.ride.name : this.park.name}</h1>
+        <h1>${this.ride?.name || this.park?.name || "Park Queues"}</h1>
       </header>
 
       <sl-drawer label="Park Queues" id="main-menu" placement="start">
