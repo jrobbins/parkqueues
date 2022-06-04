@@ -16,14 +16,21 @@ class PQSplash extends LitElement {
       ...SHARED_STYLES,
       css`
        div {
-         max-width: 320px;
-         margin: 16px;
+         width: 65vw;
+         min-height: 15vw;
+         margin: 3vh auto;
          padding: 8px 16px;
          border-radius: 32px;
+         text-align: center;
+         display: flex;
+         justify-content: center;
+         align-content: center;
+         flex-direction: column;
        }
 
-       p {
-        margin: 0;
+       p, ul {
+         margin: 0;
+         font-size: 4vw;
        }
 
        #problem {
@@ -39,7 +46,7 @@ class PQSplash extends LitElement {
        #action {
          background: var(--sl-color-primary-600);
          color: white;
-         transform: skew(-5deg);
+         transform: skew(-15deg);
          border-radius: 4px; 
        }
     `];
@@ -49,20 +56,18 @@ class PQSplash extends LitElement {
     return html`
       <div id="problem">
         <p>Kids love going to theme parks.</p>
-        <p>But, when lines get long, they are not happy campers.</p>
+        <p>But, when lines get long, they are not&nbsp;happy&nbsp;campers.</p>
       </div>
 
       <div id="solution">
-        <p>ParkQueues.com helps make waits <i>seem shorter</i> by providing:</p>
-        <ul>
-          <li>Estimates of the time remaining for points in the queue</li>
-          <li>Trivia, jokes, riddles, puzzles, and quests</li>
-        </ul>
+        <p>ParkQueues helps make waits <i>seem&nbsp;shorter</i> by providing:
+        <p>estimates of the time remaining for points in the queue,</p>
+        <p>trivia, jokes, riddles, puzzles, and&nbsp;quests.</p>
       </div>
 
       <div id="action">
-        <p>Unlike most theme park apps and sites, Park Queues has data
-           for many parks.  Just choose from the main menu.</p>
+        <p>Unlike most theme park apps and sites, ParkQueues has data
+           for many parks.  Just choose from the main&nbsp;menu.</p>
      </div>
     `;
   }
