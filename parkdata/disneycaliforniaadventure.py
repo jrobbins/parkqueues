@@ -56,63 +56,58 @@ RSR = {
   ],
   "queueSteps": [
     { "remaining": 50,
-      "trivia": [
-        "What kind of motor do the cars have? Electric."
-      ]},
+      "trivia": ["What kind of motor do the cars have? Electric."]},
     { "remaining": 47,
-      "trivia": [
-        ["How much did this ride cost to build?",
-         "Over $200 million, the most expensive one in DLR."]
-      ]},
-  { "remaining": 45,
-    "cssHeight": "62%",
-              "trivia": [
-              "Where was the technology for this ride first used? Test Track at WDW."
-              ]},
-    { "remaining": 43,
+      "trivia": ["""
+        How much did this ride cost to build?
+        Over $200 million, the most expensive one in DLR."""]
+      },
+    { "remaining": 45,
       "cssHeight": "62%",
       "trivia": [
-        "What is the name for the part of the ride after the finish line? Taillight Caverns"
-      ]},
+        "Where was the technology for this ride first used? Test Track at WDW."
+      ],
+     },
+    { "remaining": 43,
+      "cssHeight": "62%",
+      "trivia": ["""
+        What is the name for the part of the ride after the finish line?
+        Taillight Caverns"""]},
     { "remaining": 41,
-      "trivia": [
-        "What is Lightning McQueen's nickname? Stickers."
-      ]},
+      "trivia": ["What is Lightning McQueen's nickname? Stickers."]},
     { "remaining": 39,
       "cssHeight": "69%",
-      "trivia": [
-        "Who chases anyone he catches tipping trackors?  Frank."
-    ]},
+      "trivia": ["Who chases anyone he catches tipping trackors?  Frank."]},
     { "remaining": 37,
-      "trivia": [
-        "How long did guests wait for this ride when it first opened? Up to six hours."
-    ]},
+      "trivia": ["""
+        How long did guests wait for this ride when it first opened? Up to six hours.
+      """]},
     { "remaining": 34,
       "cssHeight": "82%",
-    "trivia": [
-      "If your car takes the left track, what does it get? New tires."
-    ]},
+      "trivia": [
+        "If your car takes the left track, what does it get? New tires.",
+      ]},
     { "remaining": 32,
-    "trivia": [
-      ["Who found  a natural spring emerging from a rock formation",
-       "shaped like a radiator? Stanley."]
-    ]},
+      "trivia": ["""
+      Who found a natural spring emerging from a rock formation
+      shaped like a radiator? Stanley."""]
+     },
     { "remaining": 31,
-      "trivia": [
-        ["What inspired the shapes of The peaks of the mountain range?",
-         "From left to right, represent classic Cadillac tail fins from",
-         "1957, 1958, 1959 (the Pinnacle), 1960, 1961 and 1962."]
-      ]},
-  { "remaining": 29,
-    "trivia": [
-      ["How steep is the steepest banking on the track?",
-       "45 degrees."]
-    ]},
+      "trivia": ["""
+        What inspired the shapes of The peaks of the mountain range?
+        From left to right, represent classic Cadillac tail fins from
+        1957, 1958, 1959 (the Pinnacle), 1960, 1961 and 1962."""]
+      },
+    { "remaining": 29,
+      "trivia": ["""
+      How steep is the steepest banking on the track?
+      45 degrees."""]
+     },
     { "remaining": 28,
-      "trivia": [
-        ["How far does each car travel each year?",
-         "Approximately 36,000 miles."]
-      ]},
+      "trivia": ["""
+        How far does each car travel each year?
+        Approximately 36,000 miles."""]
+     },
     27,
     { "remaining": 26,
       "cssHeight": "80%"
