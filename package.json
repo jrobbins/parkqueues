@@ -20,7 +20,7 @@
     "@open-wc/testing": "^3.1.4",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "rollup-plugin-copy": "^3.4.0",
-    "@web/test-runner": "^0.13.27",
+    "@web/test-runner": "^0.20.2",
     "rollup": "^2.73.0"
   },
   "dependencies": {
