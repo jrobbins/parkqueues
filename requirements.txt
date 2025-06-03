@@ -1,6 +1,6 @@
 # TODO(jrobbins): Update to a 2.x version of flask, which may require source
 # code changes.
-Flask==1.1.2
+Flask==2.3.2
 funcsigs==1.0.2
 Jinja2==2.11.3
 MarkupSafe==1.1.1
