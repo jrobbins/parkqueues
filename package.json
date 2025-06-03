@@ -21,7 +21,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "rollup-plugin-copy": "^3.4.0",
     "@web/test-runner": "^0.20.2",
-    "rollup": "^2.73.0"
+    "rollup": "^2.79.2"
   },
   "dependencies": {
     "@shoelace-style/shoelace": "^2.0.0-beta.73",
